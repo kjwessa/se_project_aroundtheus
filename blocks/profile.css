@@ -20,6 +20,9 @@
   font-weight: 500;
   line-height: 1.15;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__avatar {
@@ -41,6 +44,13 @@
   height: 24px;
   background: transparent url(../images/edit-button.svg) center no-repeat;
   margin-bottom: 0;
+  border: solid 1px white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.6;
 }
 
 .profile__add-button {
@@ -48,4 +58,12 @@
   width: 150px;
   height: 50px;
   margin-left: auto;
+  border: solid 2px white;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
 }
