@@ -1,20 +1,51 @@
 .profile {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
 }
 
 .profile__info {
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(auto, 373px);
+  grid-template-areas:
+    "title button"
+    "subtitle subtitle";
+  gap: 16px 18px;
 }
 
-.profile__heading {
+.profile__title {
+  grid-area: title;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0;
 }
 
 .profile__avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 30px;
 }
 
-.profile__description {
+.profile__subtitle {
+  grid-area: subtitle;
+  margin: 0;
 }
 
 .profile__edit-button {
+  grid-area: button;
+  width: 24px;
+  height: 24px;
+  background: transparent url(../images/edit-button.svg) center no-repeat;
+  margin-bottom: 0;
 }
 
 .profile__add-button {
+  background: transparent url(../images/add-icon.svg) center no-repeat;
+  width: 150px;
+  height: 50px;
+  margin-left: auto;
 }
