@@ -1,5 +1,11 @@
 .header {
+  margin-top: 45px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
 .header__logo {
+  width: 173px;
+  height: 33px;
+  margin: 0;
+  padding-bottom: 41px;
 }
