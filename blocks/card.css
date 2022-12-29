@@ -45,4 +45,9 @@
   height: 18px;
   margin-left: 2px;
   border: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.card__like-button:hover {
+  opacity: 0.5;
 }
