@@ -52,15 +52,3 @@
 .card__like-button:hover {
   opacity: 0.5;
 }
-
-@media screen and (max-width: 479px) {
-  .card__list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 282px);
-    justify-content: center;
-    grid-gap: 20px 17px;
-  }
-}
