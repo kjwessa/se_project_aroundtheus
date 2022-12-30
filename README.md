@@ -9,7 +9,8 @@
 
 ![Project Image](./images/Around-the-US-App.png)
 
-**Project Intro** <a name="intro"></a>
+**Project Intro** 
+<a name="intro"></a>
 
 Hi my name is Kevin Wessa and I am a student at Practicum.
 
@@ -18,15 +19,18 @@ This project is called **Around the U.S.**, and the focus in the current sprint 
 1. Follow a design using only a Figma file instead of a detailed brief and...
 2. Ensure the design remains consistent at all breakpoints utilizing media queries.
 
-**Project Link** <a name="link"></a>
+**Project Link** 
+<a name="link"></a>
 To access the project hosted by GitHub pages, click https://kjwessa.github.io/se_project_aroundtheus/
 
-**Technologies Used** <a name="technologies"></a>
+**Technologies Used** 
+<a name="technologies"></a>
 
 - HTML5
 - CSS3
 
-**Technologies Used** <a name="plans"></a>
+**Technologies Used** 
+<a name="plans"></a>
 Outside of the project requirements in future sprints, I want to...
 
 - Add additional breakpoints (user experience)
