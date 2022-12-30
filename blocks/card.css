@@ -2,14 +2,22 @@
   list-style: none;
   padding: 0;
   margin: 0 auto;
+  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fit, 282px);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   grid-gap: 20px 17px;
 }
 
 .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   overflow: hidden;
   border-radius: 10px;
@@ -24,8 +32,14 @@
   padding: 25px 30px 25px 20px;
   background: white;
   color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -33,6 +47,7 @@
   font-family: "Inter", Arial, sans-serif;
   font-weight: 900;
   font-size: 24px;
+  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -45,6 +60,8 @@
   height: 18px;
   margin-left: 2px;
   border: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }

@@ -6,6 +6,7 @@
   font-style: normal;
   font-size: 18px;
   line-height: 1.2;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -17,7 +18,12 @@
 }
 
 .page__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   min-height: 100vh;
 }
