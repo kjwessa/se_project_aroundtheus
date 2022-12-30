@@ -2,13 +2,13 @@
 
 ### Overview
 
-- Intro
-- Figma
+- Project Intro
+- Technologies Used
 - Images
 
-**Intro**
+**Project Intro**
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+Hi my name is Kevin Wessa and I am a student at Practicum. This project is called **Around the U.S.**, and it requires you to create the layouts for the webpage designed on Figma. In this project I implemented media queries to make different layouts depending on the screen size and we also utilized grids to make setting the cards in place way more dynamic than flexbox alone.
 
 **Figma**
 
@@ -23,3 +23,9 @@ Good luck and have fun!
 Hi my name is Kevin Wessa and I am a student at Practicum. This project is called se_project_abouttheus, and it requires you to create the layouts for the webpage designed on Figma. In this project I implemented media queries to make different layouts depending on the screen size and we also utilized grids to make setting the cards in place way more dynamic than flexbox alone.
 
 Git Pages Link: https://kjwessa.github.io/se_project_aroundtheus/
+
+2. A description of the project and its functionality
+3. A description of the technologies and techniques used
+4. Pictures, GIFs, or screenshots that detail the project features (highly
+   recommended)
+5. The link to GitHub Pages
