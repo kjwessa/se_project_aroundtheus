@@ -1,5 +1,7 @@
 .profile {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
   padding-top: 40px;
 }
@@ -8,6 +10,7 @@
   display: grid;
   align-items: center;
   grid-template-columns: minmax(auto, 373px);
+  grid-template-rows: auto;
   grid-template-areas:
     "title button"
     "subtitle subtitle";
@@ -66,4 +69,56 @@
 
 .profile__add-button:hover {
   opacity: 0.6;
+}
+
+@media screen and (max-width: 999px) {
+  .profile {
+    margin: 0 19px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile {
+    flex-direction: column;
+    padding-top: 38.25px;
+  }
+
+  .profile__avatar {
+    margin: 0 auto 26.25px;
+  }
+
+  .profile__info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .profile__add-button {
+    width: 282px;
+    margin: 36px auto 0;
+    background: transparent url(../images/add-button-tablet.svg) center no-repeat;
+  }
+
+  .profile__subtitle {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+  }
+
+  .profile__title {
+    font-size: 22px;
+    line-height: 1.22;
+  }
+
+  .profile__subtitle {
+    font-size: 14px;
+    line-height: 1.21;
+  }
 }
