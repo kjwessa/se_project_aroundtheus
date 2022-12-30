@@ -48,7 +48,7 @@
   height: 120px;
   -o-object-fit: cover;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 100%;
   margin-right: 30px;
 }
 
@@ -90,10 +90,13 @@
 .profile__add-button:hover {
   opacity: 0.6;
 }
-/*
-@media screen and (max-width: 999px) {
-  .profile {
-    margin: 0 19px;
+
+@media screen and (min-width: 768px) and (max-width: 999px) {
+  .profile__avatar {
+    margin-left: 19px;
+  }
+  .profile__add-button {
+    margin-right: 19px;
   }
 }
 
@@ -150,5 +153,3 @@
     line-height: 1.21;
   }
 }
-
-*/
