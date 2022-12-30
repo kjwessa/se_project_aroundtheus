@@ -1,15 +1,16 @@
 # Project 3: Around The U.S.
 
-![Project Image](./images/Around-the-US-App.png)
-
 ### Overview
 
-- Project Intro
+- [Project Intro](#intro)
 - Project Link
 - Technologies Used
 - Future Plans
 
+![Project Image](./images/Around-the-US-App.png)
+
 **Project Intro**
+<a name="#intro"></a>
 
 Hi my name is Kevin Wessa and I am a student at Practicum.
 
