@@ -9,3 +9,13 @@
   margin: 0;
   padding-bottom: 41px;
 }
+
+@media screen and (max-width: 530px) {
+  .header {
+    margin-top: 28px;
+  }
+
+  .header__logo {
+    padding: 0 27px 32px 27px;
+  }
+}
