@@ -1,6 +1,6 @@
 # Project 3: Around The U.S.
 
-<img src="/images/around-the-us-app.png" alt="Alt text" title="Optional title">
+![Project Image](./images/Around-the-US-App.png)
 
 ### Overview
 
@@ -21,6 +21,20 @@ This project is called **Around the U.S.**, and the focus in the current sprint 
 **Project Link**
 To access the project hosted by GitHub pages, click https://kjwessa.github.io/se_project_aroundtheus/
 
-4. Pictures, GIFs, or screenshots that detail the project features (highly
-   recommended)
-5. The link to GitHub Pages
+**Technologies Used**
+
+- HTML5
+- CSS3
+
+**Technologies Used**
+Outside of the project requirements in future sprints, I want to...
+
+- Add additional breakpoints (user experience)
+- Switch away from PX to REM (accessibility)
+- Make the logo a link if project extends multiple pages (user experience)
+- Create a loading animation if the app allows more than six pictures (user experience)
+- Add tooltips or a first time tutorial for users (user experience)
+- Allow the dimensions of the images to not be set to PX, and dynamically resize (design)
+- Add outbound links in the footer (marketing)
+- Add social links in the header (marketing)
+- Update footer date dynamically in the footer using JS (legal)
