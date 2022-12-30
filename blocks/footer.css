@@ -1,5 +1,8 @@
 .footer {
+  padding: 67px 0 60px;
 }
 
 .footer__copyright {
+  color: #545454;
+  margin: 0;
 }
