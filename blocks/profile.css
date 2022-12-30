@@ -90,7 +90,7 @@
 .profile__add-button:hover {
   opacity: 0.6;
 }
-
+/*
 @media screen and (max-width: 999px) {
   .profile {
     margin: 0 19px;
@@ -150,3 +150,5 @@
     line-height: 1.21;
   }
 }
+
+*/

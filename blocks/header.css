@@ -11,10 +11,11 @@
 }
 
 @media screen and (max-width: 999px) {
+  /*
   .header {
     margin: 28px 19px 0;
   }
-
+*/
   .header__logo {
     padding: 0 27px 32px 27px;
   }
