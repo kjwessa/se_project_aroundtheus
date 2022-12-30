@@ -10,7 +10,7 @@
 ![Project Image](./images/Around-the-US-App.png)
 
 **Project Intro**
-<a name="#intro"></a>
+<a name="intro"></a>
 
 Hi my name is Kevin Wessa and I am a student at Practicum.
 
