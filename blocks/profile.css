@@ -55,6 +55,10 @@
 .profile__subtitle {
   grid-area: subtitle;
   margin: 0;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__edit-button {
