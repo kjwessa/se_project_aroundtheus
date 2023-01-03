@@ -1,1 +1,42 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
+.modal__opened {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__container {
+  color: black;
+  background-color: white;
+  position: relative;
+}
+
+.modal__title {
+}
+
+.modal__form-fieldset {
+}
+
+.modal__form-input {
+}
+
+.modal__save-button {
+}
+
+.modal__save-button:hover {
+}
+
+.modal__close-button {
+}
+
+.modal__close-button:hover {
+}
