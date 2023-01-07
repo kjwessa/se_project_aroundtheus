@@ -17,7 +17,6 @@ function openModal() {
   profileNameInput.value = profileTitle.textContent;
   profileJobInput.value = profileSubTitle.textContent;
   profileModal.classList.add("modal__opened");
-  console.log("Modal Opened");
 }
 
 profileEditButton.addEventListener("click", openModal);
@@ -25,7 +24,6 @@ profileEditButton.addEventListener("click", openModal);
 /* Close profile modal */
 function closeModal() {
   profileModal.classList.remove("modal__opened");
-  console.log("Modal Closed");
 }
 
 profileCloseButton.addEventListener("click", closeModal);
@@ -40,30 +38,50 @@ function handleProfileFormSubmit(evt) {
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
 
-/* Initial Cards */
+/* Initial Card Data */
 const initialCards = [
   {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+    name: "Grand Teton",
+    link: "https://source.unsplash.com/9nUcpfu476M/",
   },
   {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+    name: "Antelope Canyon",
+    link: "https://source.unsplash.com/7he8rO3qdsc",
   },
   {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+    name: "Glacier National Park",
+    link: "https://source.unsplash.com/qsngjpG5I5s",
   },
   {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
+    name: "Yosemite National Park",
+    link: "https://source.unsplash.com/UCd78vfC8vU",
   },
   {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
+    name: "Rockey Mountain National Park",
+    link: "https://source.unsplash.com/pq2DJBntZW0",
   },
   {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
+    name: "Zion National Park",
+    link: "https://source.unsplash.com/tvg2AeJHfbM",
   },
 ];
+
+/* Insert Cards on the page */
+function getCardTemplate(data) {
+  const cardTemplate = document.querySelector("#card-template").content;
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+
+  const cardImage = cardElement.querySelector(".card__image");
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+  const cardTitle = cardElement.querySelector(".card__title");
+  cardTitle.textContent = data.name;
+
+  return cardElement;
+}
+
+for (let i = 0; i < initialCards.length; i++) {
+  const card = getCardTemplate(initialCards[i]);
+  const cardsContainer = document.querySelector(".cards__list");
+  cardsContainer.append(card);
+}
