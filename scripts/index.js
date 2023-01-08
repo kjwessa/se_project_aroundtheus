@@ -31,8 +31,8 @@ profileCloseButton.addEventListener("click", closeModal);
 /* Form Submission - Prevent Default */
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  profileNameInput.value = profileTitle.textContent;
-  profileJobInput.value = profileSubTitle.textContent;
+  profileTitle.textContent = profileNameInput.value;
+  profileSubTitle.textContent = profileJobInput.value;
   closeModal();
 }
 
