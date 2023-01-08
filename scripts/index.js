@@ -8,8 +8,8 @@ const profileEditButton = profileInfo.querySelector(".profile__edit-button");
 /* Variables for Modal + Form */
 const profileModal = document.querySelector(".modal");
 const profileForm = profileModal.querySelector(".modal__container");
-const profileNameInput = profileModal.querySelector(".form__input-name");
-const profileJobInput = profileModal.querySelector(".form__input-job");
+const profileNameInput = profileModal.querySelector(".modal__form-input_type_name");
+const profileJobInput = profileModal.querySelector(".modal__form-input_type_job");
 const profileCloseButton = profileModal.querySelector(".modal__close-button");
 
 /* Open profile modal and fill form with values */
