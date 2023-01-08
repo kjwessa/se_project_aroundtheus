@@ -16,14 +16,14 @@ const profileCloseButton = profileModal.querySelector(".modal__close-button");
 function openModal() {
   profileNameInput.value = profileTitle.textContent;
   profileJobInput.value = profileSubTitle.textContent;
-  profileModal.classList.add("modal__opened");
+  profileModal.classList.add("modal_opened");
 }
 
 profileEditButton.addEventListener("click", openModal);
 
 /* Close profile modal */
 function closeModal() {
-  profileModal.classList.remove("modal__opened");
+  profileModal.classList.remove("modal_opened");
 }
 
 profileCloseButton.addEventListener("click", closeModal);
