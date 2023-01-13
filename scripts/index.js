@@ -95,16 +95,24 @@ newCardCloseButton.addEventListener("click", () => {
   modalClose(newCardModal);
 });
 
+/* Like Button Toggle */
+function handleLikeButton(evt) {
+  evt.target.classList.toggle("card__like-button_is-active");
+}
+
 /* Insert Cards on the page */
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
 
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
+  const likeButton = cardElement.querySelector(".card__like-button");
 
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
   cardTitle.textContent = cardData.name;
+
+  likeButton.addEventListener("click", handleLikeButton);
 
   return cardElement;
 }
@@ -123,9 +131,7 @@ newCardForm.addEventListener("submit", (evt) => {
   newCardForm.reset();
 });
 
-/* Like Button Toggle */
-
 /* Add initial cards on load */
-initialCards.forEach((cardData) => {
+initialCards.forEach((cardData, index) => {
   cardsWrap.append(getCardElement(cardData));
 });

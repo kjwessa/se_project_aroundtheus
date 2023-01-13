@@ -55,3 +55,15 @@
 .card__like-button:hover {
   opacity: 0.5;
 }
+
+.card__like-button_is-active {
+  background: transparent url(../images/like-button-active.svg) center no-repeat;
+  width: 21px;
+  height: 18px;
+  margin-left: 2px;
+  border: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
