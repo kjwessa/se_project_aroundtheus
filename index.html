@@ -50,7 +50,7 @@
       <footer class="footer page__section">
         <p class="footer__copyright">© 2022 Around the US</p>
       </footer>
-      <div class="modal">
+      <div class="modal" id="profileEditModal">
         <form class="modal__container">
           <h3 class="modal__title">Edit Profile</h3>
           <fieldset class="modal__form-fieldset">
@@ -69,6 +69,29 @@
           </fieldset>
           <fieldset class="modal__form-fieldset">
             <button type="submit" class="modal__save-button" aria-label="submit">Save</button>
+          </fieldset>
+          <button class="modal__close-button" type="button" aria-label="close"></button>
+        </form>
+      </div>
+      <div class="modal" id="newCardModal">
+        <form class="modal__container">
+          <h3 class="modal__title">New Place</h3>
+          <fieldset class="modal__form-fieldset">
+            <input
+              type="text"
+              name="title"
+              id="title"
+              placeholder="Title"
+              class="modal__form-input modal__form-input_type_name" />
+            <input
+              type="text"
+              name="link"
+              id="link"
+              placeholder="Image link"
+              class="modal__form-input modal__form-input_type_job" />
+          </fieldset>
+          <fieldset class="modal__form-fieldset">
+            <button type="submit" class="modal__save-button" aria-label="submit">Create</button>
           </fieldset>
           <button class="modal__close-button" type="button" aria-label="close"></button>
         </form>
