@@ -80,8 +80,8 @@ function getCardTemplate(data) {
   return cardElement;
 }
 
-for (let i = 0; i < initialCards.length; i++) {
-  const card = getCardTemplate(initialCards[i]);
+initialCards.forEach((item) => {
+  const card = getCardTemplate(item);
   const cardsContainer = document.querySelector(".cards__list");
   cardsContainer.append(card);
-}
+});
