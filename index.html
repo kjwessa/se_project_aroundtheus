@@ -34,17 +34,7 @@
           <button class="profile__add-button" type="button" aria-label="add"></button>
         </section>
         <section class="cards page__section">
-          <ul class="cards__list">
-            <template id="card-template">
-              <li class="card">
-                <img src="" alt="" class="card__image" />
-                <div class="card__description">
-                  <h2 class="card__title"></h2>
-                  <button class="card__like-button" type="button" aria-label="like"></button>
-                </div>
-              </li>
-            </template>
-          </ul>
+          <ul class="cards__list"></ul>
         </section>
       </main>
       <footer class="footer page__section">
@@ -96,6 +86,15 @@
           <button class="modal__close-button" type="button" aria-label="close"></button>
         </form>
       </div>
+      <template id="card-template">
+        <li class="card">
+          <img src="" alt="" class="card__image" />
+          <div class="card__description">
+            <h2 class="card__title"></h2>
+            <button class="card__like-button" type="button" aria-label="like"></button>
+          </div>
+        </li>
+      </template>
     </div>
     <script type="text/javascript" src="./scripts/index.js"></script>
   </body>

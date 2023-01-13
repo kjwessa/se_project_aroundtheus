@@ -1,3 +1,31 @@
+/* Initial Card Data */
+const initialCards = [
+  {
+    name: "Grand Teton",
+    link: "https://source.unsplash.com/9nUcpfu476M/",
+  },
+  {
+    name: "Antelope Canyon",
+    link: "https://source.unsplash.com/7he8rO3qdsc",
+  },
+  {
+    name: "Glacier National Park",
+    link: "https://source.unsplash.com/qsngjpG5I5s",
+  },
+  {
+    name: "Yosemite National Park",
+    link: "https://source.unsplash.com/UCd78vfC8vU",
+  },
+  {
+    name: "Rockey Mountain National Park",
+    link: "https://source.unsplash.com/pq2DJBntZW0",
+  },
+  {
+    name: "Zion National Park",
+    link: "https://source.unsplash.com/tvg2AeJHfbM",
+  },
+];
+
 /* Variables for Profile */
 const profile = document.querySelector(".profile");
 const profileInfo = profile.querySelector(".profile__info");
@@ -19,6 +47,10 @@ const newCardForm = newCardModal.querySelector(".modal__container");
 const newCardTitleInput = newCardModal.querySelector(".modal__form-input_type_title");
 const newCardLinkInput = newCardModal.querySelector(".modal__form-input_type_link");
 const newCardCloseButton = newCardModal.querySelector(".modal__close-button");
+
+/* Variables for Cards */
+const cardsWrap = document.querySelector(".cards__list");
+const cardTemplate = document.querySelector("#card-template").content;
 
 /* Open & Close Modals */
 function modalOpen(modalName) {
@@ -63,50 +95,37 @@ newCardCloseButton.addEventListener("click", () => {
   modalClose(newCardModal);
 });
 
-/* Initial Card Data */
-const initialCards = [
-  {
-    name: "Grand Teton",
-    link: "https://source.unsplash.com/9nUcpfu476M/",
-  },
-  {
-    name: "Antelope Canyon",
-    link: "https://source.unsplash.com/7he8rO3qdsc",
-  },
-  {
-    name: "Glacier National Park",
-    link: "https://source.unsplash.com/qsngjpG5I5s",
-  },
-  {
-    name: "Yosemite National Park",
-    link: "https://source.unsplash.com/UCd78vfC8vU",
-  },
-  {
-    name: "Rockey Mountain National Park",
-    link: "https://source.unsplash.com/pq2DJBntZW0",
-  },
-  {
-    name: "Zion National Park",
-    link: "https://source.unsplash.com/tvg2AeJHfbM",
-  },
-];
-
 /* Insert Cards on the page */
-function getCardTemplate(data) {
-  const cardTemplate = document.querySelector("#card-template").content;
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
 
   const cardImage = cardElement.querySelector(".card__image");
-  cardImage.src = data.link;
-  cardImage.alt = data.name;
   const cardTitle = cardElement.querySelector(".card__title");
-  cardTitle.textContent = data.name;
+
+  cardImage.src = cardData.link;
+  cardImage.alt = cardData.name;
+  cardTitle.textContent = cardData.name;
 
   return cardElement;
 }
 
-initialCards.forEach((item) => {
-  const card = getCardTemplate(item);
-  const cardsContainer = document.querySelector(".cards__list");
-  cardsContainer.append(card);
+/* New Card Added Event Listener */
+newCardForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  const newCardTitle = evt.target.title.value;
+  const newCardLink = evt.target.link.value;
+  const cardElement = getCardElement({
+    name: newCardTitle,
+    link: newCardLink,
+  });
+  cardsWrap.prepend(cardElement);
+  modalClose(newCardModal);
+  newCardForm.reset();
+});
+
+/* Like Button Toggle */
+
+/* Add initial cards on load */
+initialCards.forEach((cardData) => {
+  cardsWrap.append(getCardElement(cardData));
 });
