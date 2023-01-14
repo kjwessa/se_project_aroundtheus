@@ -1,14 +1,9 @@
-.modal {
+modal {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  display: none;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal_opened {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,6 +13,19 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 0s, opacity 0.5s ease 0s;
+  -o-transition: visibility 0s, opacity 0.5s ease 0s;
+  transition: visibility 0s, opacity 0.5s ease 0s;
+}
+
+.modal_opened {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
 }
 
 .modal__form-container {
@@ -111,10 +119,9 @@
 }
 
 .modal__preview-image {
-  width: 100%;
-  height: 100%;
   max-width: 75vw;
   max-height: 75vh;
+  object-fit: cover;
 }
 
 .modal__caption {
