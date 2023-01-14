@@ -9,8 +9,5 @@
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fit, 282px);
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   grid-gap: 20px 17px;
 }
