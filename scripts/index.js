@@ -159,7 +159,7 @@ newCardForm.addEventListener("submit", (evt) => {
     link: newCardLink,
   });
   cardsWrap.prepend(cardElement);
-  modalClose(newCardModal);
+  closeModal(newCardModal);
   newCardForm.reset();
 });
 
