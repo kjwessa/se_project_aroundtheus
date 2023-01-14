@@ -8,6 +8,7 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: 10px;
+  position: relative;
 }
 
 .card__image {
@@ -66,4 +67,22 @@
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+}
+
+.card__delete-button {
+  background: transparent url(../images/trash-icon.svg) center no-repeat;
+  border: 0;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  width: 18px;
+  height: 19.3px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.card__delete-button:hover {
+  opacity: 0.6;
 }
