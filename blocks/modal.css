@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-.modal__container {
+.modal__form-container {
   position: relative;
   color: black;
   background-color: white;
@@ -97,6 +97,31 @@
 
 .modal__close-button:hover {
   opacity: 0.6;
+}
+
+.modal__preview {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.modal__preview-image {
+  width: 100%;
+  height: 100%;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__caption {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.25;
+  color: white;
 }
 
 @media screen and (max-width: 580px) {

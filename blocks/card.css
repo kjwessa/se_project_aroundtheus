@@ -9,6 +9,7 @@
   overflow: hidden;
   border-radius: 10px;
   position: relative;
+  cursor: pointer;
 }
 
 .card__image {
@@ -47,9 +48,9 @@
   height: 18px;
   margin-left: 2px;
   border: 0;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   cursor: pointer;
 }
 
@@ -63,9 +64,9 @@
   height: 18px;
   margin-left: 2px;
   border: 0;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   cursor: pointer;
 }
 
@@ -78,9 +79,9 @@
   width: 18px;
   height: 19.3px;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .card__delete-button:hover {

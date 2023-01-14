@@ -12,7 +12,7 @@
     <meta name="author" content="Kevin Wessa" />
     <meta name="keywords" content="Practicum html css" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>Around the US - App</title>
   </head>
   <body class="page">
@@ -41,7 +41,7 @@
         <p class="footer__copyright">© 2022 Around the US</p>
       </footer>
       <div class="modal" id="profileEditModal">
-        <form class="modal__container">
+        <form class="modal__form-container">
           <h3 class="modal__title">Edit Profile</h3>
           <fieldset class="modal__form-fieldset">
             <input
@@ -60,11 +60,11 @@
           <fieldset class="modal__form-fieldset">
             <button type="submit" class="modal__save-button" aria-label="submit">Save</button>
           </fieldset>
-          <button class="modal__close-button" type="button" aria-label="close"></button>
+          <button class="modal__close-button" type="button" aria-label="close modal"></button>
         </form>
       </div>
       <div class="modal" id="newCardModal">
-        <form class="modal__container">
+        <form class="modal__form-container">
           <h3 class="modal__title">New Place</h3>
           <fieldset class="modal__form-fieldset">
             <input
@@ -83,8 +83,18 @@
           <fieldset class="modal__form-fieldset">
             <button type="submit" class="modal__save-button" aria-label="submit">Create</button>
           </fieldset>
-          <button class="modal__close-button" type="button" aria-label="close"></button>
+          <button class="modal__close-button" type="button" aria-label="close modal"></button>
         </form>
+      </div>
+      <div class="modal" id="cardPreviewModal">
+        <div class="modal__preview">
+          <button
+            class="modal__close-button modal__close-button_preview"
+            type="button"
+            aria-label="close modal"></button>
+          <img src="" alt="" class="modal__preview-image" />
+          <p class="modal__caption"></p>
+        </div>
       </div>
       <template id="card-template">
         <li class="card">
