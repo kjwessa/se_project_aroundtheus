@@ -141,9 +141,6 @@ function getCardElement(cardData) {
   });
   previewCloseButton.addEventListener("click", () => {
     closeModal(previewImageModal);
-    previewImage.src = " ";
-    previewImage.alt = " ";
-    previewName.textContent = " ";
   });
 
   return cardElement;
