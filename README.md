@@ -28,6 +28,9 @@ To access the project hosted by GitHub pages, click https://kjwessa.github.io/se
 
 - HTML5
 - CSS3
+- BEM
+- Media Queries
+- Vanilla JS
 
 **Project Plans**
 <a name="plans"></a>
