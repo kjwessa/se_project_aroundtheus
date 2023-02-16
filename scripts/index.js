@@ -25,6 +25,7 @@ const initialCards = [
     link: "https://source.unsplash.com/tvg2AeJHfbM",
   },
 ];
+
 /* Variables for Profile */
 const profile = document.querySelector(".profile");
 const profileInfo = profile.querySelector(".profile__info");
