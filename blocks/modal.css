@@ -48,6 +48,8 @@
 }
 
 .modal__form-fieldset {
+  display: flex;
+  flex-direction: column;
   padding: 0 36px;
   border: 0;
   margin: 0;
@@ -63,11 +65,28 @@
   border-right: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   width: 100%;
+}
+
+.modal__label {
+  position: relative;
   margin-bottom: 28px;
 }
 
-.modal__form-input:last-of-type {
+.modal__label:last-of-type {
   margin-bottom: 0;
+}
+
+.modal__error {
+  font-size: 12px;
+  line-height: 15px;
+  position: absolute;
+  color: #ff0000;
+  top: calc(100% + 5px);
+  left: 0;
+  transition: opacity 0.3s;
+}
+.modal__form-input_type_error {
+  border-bottom: solid 1px #ff0000;
 }
 
 .modal__save-button {
