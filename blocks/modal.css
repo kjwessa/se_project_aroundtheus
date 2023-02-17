@@ -85,6 +85,11 @@
   left: 0;
   transition: opacity 0.3s;
 }
+
+.modal__error_visible {
+  display: block;
+}
+
 .modal__form-input_type_error {
   border-bottom: solid 1px #ff0000;
 }

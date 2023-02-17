@@ -26,6 +26,10 @@ const initialCards = [
   },
 ];
 
+/* -------------------------------------------------------------------------- */
+/*                                  Variables                                 */
+/* -------------------------------------------------------------------------- */
+
 /* Variables for Profile */
 const profile = document.querySelector(".profile");
 const profileInfo = profile.querySelector(".profile__info");

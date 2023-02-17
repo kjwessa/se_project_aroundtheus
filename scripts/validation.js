@@ -1,3 +1,20 @@
+function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
+  const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
+  inputEl.classList.add(inputErrorClass);
+  errorMessageEl.textContent = inputEl.validationMessage;
+  errorMessageEl.classList.add(errorClass);
+}
+
+function hideInputError() {}
+
+function checkInputValidity(formEl, inputEl, options) {
+  if (!inputEl.validity.valid) {
+    showInputError(formEl, inputEl, options);
+  } else {
+    hideInputError(formEl, inputEl, options);
+  }
+}
+
 function setEventListeners(formEl, options) {
   // below, we destructure the variable we need from the options object
   const { inputSelector } = options;
@@ -7,10 +24,12 @@ function setEventListeners(formEl, options) {
   // then we create an array from all the inputs on each form
   inputEls.forEach((inputEl) => {
     // and for each input
+    // we attach an event listener
     inputEl.addEventListener("input", (e) => {
-      // we attach an event listener
-      console.log(inputEl.validationMessage);
-      // and check the validation message
+      // check the right form
+      // check for the right input
+      // and we pass along the options so it has the classes
+      checkInputValidity(formEl, inputEl, options);
     });
   });
 }
@@ -35,8 +54,8 @@ const configObject = {
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".popup__button",
   inactiveButtonClass: ".popup__button_disabled",
-  inputErrorClass: ".popup__input_type_error",
-  errorClass: ".popup__error_visible",
+  inputErrorClass: "modal__form-input_type_error",
+  errorClass: "modal__error_visible",
 };
 
 enableValidation(configObject);
