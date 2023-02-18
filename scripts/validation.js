@@ -57,21 +57,10 @@ function enableValidation(options) {
 const configObject = {
   formSelector: ".modal__form-container",
   inputSelector: ".modal__form-input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: ".popup__button_disabled",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__form-input_type_error",
   errorClass: "modal__error_visible",
 };
 
 enableValidation(configObject);
-
-// loop through all inputs of form
-// loop through all the inputs to see if all are valid
-// if input is not valid
-//grab the validation message
-// add error class to input
-// display error message
-// disable button
-// if all inputs are valid
-// enable button
-// reset error message
