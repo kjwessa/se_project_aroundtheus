@@ -71,7 +71,7 @@
             </label>
           </fieldset>
           <fieldset class="modal__form-fieldset">
-            <button type="submit" class="modal__save-button" aria-label="submit">Save</button>
+            <button type="submit" class="modal__button" aria-label="submit">Save</button>
           </fieldset>
           <button class="modal__close-button" type="button" aria-label="close modal"></button>
         </form>
@@ -99,12 +99,15 @@
                 name="link"
                 id="card-link"
                 placeholder="Image link"
-                class="modal__form-input modal__form-input_type_link" />
+                class="modal__form-input modal__form-input_type_link"
+                required />
               <span class="modal__error" id="card-link-error"></span>
             </label>
           </fieldset>
           <fieldset class="modal__form-fieldset">
-            <button type="submit" class="modal__save-button" aria-label="submit">Create</button>
+            <button type="submit" class="modal__button modal__button_disabled" aria-label="submit">
+              Create
+            </button>
           </fieldset>
           <button class="modal__close-button" type="button" aria-label="close modal"></button>
         </form>

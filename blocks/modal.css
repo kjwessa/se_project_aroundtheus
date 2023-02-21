@@ -94,7 +94,7 @@
   border-bottom: solid 1px #ff0000;
 }
 
-.modal__save-button {
+.modal__button {
   margin: 48px 0 0;
   background-color: black;
   color: white;
@@ -109,8 +109,14 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-.modal__save-button:hover {
+.modal__button:hover {
   opacity: 0.8;
+}
+
+.modal__button_disabled {
+  opacity: 0.2;
+  border: 1px solid #000000;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal__close-button {
