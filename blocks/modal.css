@@ -48,7 +48,12 @@
 }
 
 .modal__form-fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   padding: 0 36px;
   border: 0;
@@ -83,6 +88,8 @@
   color: #ff0000;
   top: calc(100% + 5px);
   left: 0;
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
 
