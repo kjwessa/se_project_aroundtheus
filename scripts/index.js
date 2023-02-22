@@ -59,7 +59,7 @@ const previewName = previewImageModal.querySelector(".modal__caption");
 const cardsWrap = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#card-template").content;
 
-/* Open & Close Modals */
+/* Functions for Modals */
 function openModal(modalName) {
   modalName.classList.add("modal_opened");
 }
