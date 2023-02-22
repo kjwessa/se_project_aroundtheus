@@ -47,8 +47,6 @@ const profileJobInput = profileEditModal.querySelector(".modal__form-input_type_
 /* Variables for New Card Modal */
 const newCardModal = document.querySelector("#newCardModal");
 const newCardForm = newCardModal.querySelector(".modal__form-container");
-const newCardTitleInput = newCardModal.querySelector(".modal__form-input_type_title");
-const newCardLinkInput = newCardModal.querySelector(".modal__form-input_type_link");
 
 /* Variables for Preview Image Modal */
 const previewImageModal = document.querySelector("#cardPreviewModal");
