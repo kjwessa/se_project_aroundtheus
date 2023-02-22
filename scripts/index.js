@@ -62,10 +62,19 @@ const cardTemplate = document.querySelector("#card-template").content;
 /* Functions for Modals */
 function openModal(modalName) {
   modalName.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalOnEscape);
 }
 
 function closeModal(modalName) {
   modalName.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeModalOnEscape);
+}
+
+function closeModalOnEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
+  }
 }
 
 /* Close Buttons */
