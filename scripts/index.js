@@ -47,6 +47,8 @@ const profileJobInput = profileEditModal.querySelector(".modal__form-input_type_
 /* Variables for New Card Modal */
 const newCardModal = document.querySelector("#newCardModal");
 const newCardForm = newCardModal.querySelector(".modal__form-container");
+const newCardInputs = [...newCardForm.querySelectorAll(".modal__form-input")];
+const newCardSubmitButton = newCardForm.querySelector(".modal__button"); //?
 
 /* Variables for Preview Image Modal */
 const previewImageModal = document.querySelector("#cardPreviewModal");
@@ -114,6 +116,7 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 /* New Card Modal Event Listeners */
 newCardOpenButton.addEventListener("click", () => {
+  toggleButtonState(newCardInputs, newCardSubmitButton, configObject);
   openModal(newCardModal);
 });
 
