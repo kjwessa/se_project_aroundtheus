@@ -63,13 +63,13 @@ const cardTemplate = document.querySelector("#card-template").content;
 function openModal(modalName) {
   modalName.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalOnEscape);
-  document.addEventListener("click", closeModalOnClick);
+  document.addEventListener("mousedown", closeModalOnClick);
 }
 
 function closeModal(modalName) {
   modalName.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalOnEscape);
-  document.removeEventListener("click", closeModalOnClick);
+  document.removeEventListener("mousedown", closeModalOnClick);
 }
 
 function closeModalOnEscape(evt) {
