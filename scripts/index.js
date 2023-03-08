@@ -1,4 +1,4 @@
-import Card from "./Card.js";
+// import Card from "./Card.js";
 
 /* Initial Card Data */
 const initialCards = [
@@ -27,6 +27,13 @@ const initialCards = [
     link: "https://source.unsplash.com/tvg2AeJHfbM",
   },
 ];
+
+// const cardData = {
+//   name: "Grand Teton",
+//   link: "https://source.unsplash.com/9nUcpfu476M/",
+// };
+
+// const card = new Card(cardData);
 
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
