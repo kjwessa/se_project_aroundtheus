@@ -1,3 +1,5 @@
+import Card from "./Card.js";
+
 /* Initial Card Data */
 const initialCards = [
   {
