@@ -1,4 +1,5 @@
-// import Card from "./Card.js";
+import Card from "./Card.js";
+import { openModal, closeModal, closeModalOnEscape, closeModalOnClick } from "./utils.js";
 
 /* Initial Card Data */
 const initialCards = [
@@ -28,13 +29,13 @@ const initialCards = [
   },
 ];
 
-// const cardData = {
-//   name: "Grand Teton",
-//   link: "https://source.unsplash.com/9nUcpfu476M/",
-// };
+const cardData = {
+  name: "Grand Teton",
+  link: "https://source.unsplash.com/9nUcpfu476M/",
+};
 
-// const card = new Card(cardData);
-
+const card = new Card(cardData, "#card-template");
+card.getView();
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
@@ -68,32 +69,6 @@ const previewName = previewImageModal.querySelector(".modal__caption");
 const cardsWrap = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#card-template").content;
 
-/* Functions for Modals */
-function openModal(modalName) {
-  modalName.classList.add("modal_opened");
-  document.addEventListener("keydown", closeModalOnEscape);
-  document.addEventListener("mousedown", closeModalOnClick);
-}
-
-function closeModal(modalName) {
-  modalName.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalOnEscape);
-  document.removeEventListener("mousedown", closeModalOnClick);
-}
-
-function closeModalOnEscape(evt) {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    closeModal(openedModal);
-  }
-}
-
-function closeModalOnClick(evt) {
-  if (evt.target.classList.contains("modal_opened")) {
-    closeModal(evt.target);
-  }
-}
-
 /* Close Buttons */
 const closeButtons = document.querySelectorAll(".modal__close-button");
 
@@ -125,15 +100,17 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 /* New Card Modal Event Listeners */
 newCardOpenButton.addEventListener("click", () => {
-  toggleButtonState(newCardInputs, newCardSubmitButton, configObject);
+  // toggleButtonState(newCardInputs, newCardSubmitButton, configObject);
   openModal(newCardModal);
 });
 
+// ! Remove this functionality
 /* Like Button Toggle */
 function handleLikeButton(evt) {
   evt.target.classList.toggle("card__like-button_is-active");
 }
 
+// ! Remove this functionality
 /* Delete Button */
 function handleDeleteButton(evt) {
   evt.target.closest(".card").remove();
@@ -185,5 +162,6 @@ newCardForm.addEventListener("submit", (evt) => {
 
 /* Add initial cards on load */
 initialCards.forEach((cardData, index) => {
+  // Render Card
   cardsWrap.append(getCardElement(cardData));
 });
