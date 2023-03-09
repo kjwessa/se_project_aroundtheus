@@ -29,13 +29,6 @@ const initialCards = [
   },
 ];
 
-const cardData = {
-  name: "Grand Teton",
-  link: "https://source.unsplash.com/9nUcpfu476M/",
-};
-
-const card = new Card(cardData, "#card-template");
-card.getView();
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
@@ -66,8 +59,9 @@ const previewImage = previewImageModal.querySelector(".modal__preview-image");
 const previewName = previewImageModal.querySelector(".modal__caption");
 
 /* Variables for Cards */
-const cardsWrap = document.querySelector(".cards__list");
-const cardTemplate = document.querySelector("#card-template").content;
+const cardsList = document.querySelector(".cards__list");
+const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
+const cardSelector = "#card-template";
 
 /* Close Buttons */
 const closeButtons = document.querySelectorAll(".modal__close-button");
@@ -76,6 +70,25 @@ closeButtons.forEach((button) => {
   const modal = button.closest(".modal");
   button.addEventListener("click", () => closeModal(modal));
 });
+
+// TODO remove the fake card functionality below and move it into the proper functions
+// Define the card selector
+const fakeData = {
+  name: "Zion National Park",
+  link: "https://source.unsplash.com/tvg2AeJHfbM",
+};
+
+function createFakeCardElement(fakeData) {
+  const card = new Card(fakeData, cardSelector);
+  return card.getView();
+}
+
+function renderFakeCardElement(fakeData) {
+  const card = createFakeCardElement(fakeData);
+  cardsList.append(card);
+}
+
+renderFakeCardElement(fakeData);
 
 /* Fill in and Close Profile Modal */
 function fillProfileInputs() {
@@ -104,13 +117,13 @@ newCardOpenButton.addEventListener("click", () => {
   openModal(newCardModal);
 });
 
-// ! Remove this functionality
+// TODO - Remove the like button handler
 /* Like Button Toggle */
 function handleLikeButton(evt) {
   evt.target.classList.toggle("card__like-button_is-active");
 }
 
-// ! Remove this functionality
+// TODO - Remove the delete button handler
 /* Delete Button */
 function handleDeleteButton(evt) {
   evt.target.closest(".card").remove();
@@ -124,44 +137,61 @@ function handlePreviewImage(cardData) {
   openModal(previewImageModal);
 }
 
+// TODO - Remove this which is being replaced by Card.js once the functionality is implemented and see if any remaining functionality is needed
 /* Insert Cards on the page */
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
+// function getCardElement(cardData) {
+//   // const cardElement = cardTemplate.cloneNode(true);
 
-  const cardImage = cardElement.querySelector(".card__image");
-  const cardTitle = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteButton = cardElement.querySelector(".card__delete-button");
+//   // const cardImage = cardElement.querySelector(".card__image");
+//   const cardTitle = cardElement.querySelector(".card__title");
+//   // const likeButton = cardElement.querySelector(".card__like-button");
+//   // const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  cardImage.src = cardData.link;
-  cardImage.alt = cardData.name;
-  cardTitle.textContent = cardData.name;
+//   // cardImage.src = cardData.link;
+//   // cardImage.alt = cardData.name;
+//   cardTitle.textContent = cardData.name;
 
-  likeButton.addEventListener("click", handleLikeButton);
-  deleteButton.addEventListener("click", handleDeleteButton);
-  cardImage.addEventListener("click", () => {
-    handlePreviewImage(cardData);
-  });
+//   // likeButton.addEventListener("click", handleLikeButton);
+//   // deleteButton.addEventListener("click", handleDeleteButton);
+//   cardImage.addEventListener("click", () => {
+//     handlePreviewImage(cardData);
+//   });
 
-  return cardElement;
-}
+//   return cardElement;
+// }
 
+// TODO Adjust
 /* New Card Added Event Listener */
 newCardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const newCardTitle = evt.target.title.value;
   const newCardLink = evt.target.link.value;
-  const cardElement = getCardElement({
-    name: newCardTitle,
-    link: newCardLink,
-  });
-  cardsWrap.prepend(cardElement);
-  closeModal(newCardModal);
-  newCardForm.reset();
+  // const cardElement = getCardElement({
+  //   name: newCardTitle,
+  //   link: newCardLink,
+  // });
+  // cardsWrap.prepend(cardElement);
+  // closeModal(newCardModal);
+  // newCardForm.reset();
 });
 
+// TODO create the card elements on the page
+function createCardElement(cardData) {
+  const card = new Card(cardData);
+  return card.getView();
+}
+
+// TODO render the card elements on the page
+function renderCardElement(cardData) {
+  const card = createCardElement(cardData, cardSelector);
+  // prepend the new card to the existing card list
+  // cardsWrap.prepend(card);
+}
+
+// TODO render the initial cards on load
 /* Add initial cards on load */
 initialCards.forEach((cardData, index) => {
-  // Render Card
-  cardsWrap.append(getCardElement(cardData));
+  // create a new card element
+  // cardsWrap.append(getCardElement(cardData));
+  // renderCardElement(cardData);
 });
