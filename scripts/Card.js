@@ -40,7 +40,10 @@ export default class Card {
   // method that retrieves the card template from the HTML
   _getCardTemplate() {
     // get the card template from the HTML using the card selector property
-    return document.querySelector(this._cardSelector).content.querySelector(".card");
+    return document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
   }
 
   // method that creates the card view and returns it

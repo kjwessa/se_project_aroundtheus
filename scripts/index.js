@@ -71,25 +71,6 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", () => closeModal(modal));
 });
 
-// TODO remove the fake card functionality below and move it into the proper functions
-// Define the card selector
-const fakeData = {
-  name: "Zion National Park",
-  link: "https://source.unsplash.com/tvg2AeJHfbM",
-};
-
-function createFakeCardElement(fakeData) {
-  const card = new Card(fakeData, cardSelector);
-  return card.getView();
-}
-
-function renderFakeCardElement(fakeData) {
-  const card = createFakeCardElement(fakeData);
-  cardsList.append(card);
-}
-
-renderFakeCardElement(fakeData);
-
 /* Fill in and Close Profile Modal */
 function fillProfileInputs() {
   profileNameInput.value = profileTitle.textContent;
@@ -175,23 +156,41 @@ newCardForm.addEventListener("submit", (evt) => {
   // newCardForm.reset();
 });
 
-// TODO create the card elements on the page
-function createCardElement(cardData) {
-  const card = new Card(cardData);
-  return card.getView();
+// Define the card selector
+// const fakeData = {
+//   name: "Zion National Park",
+//   link: "https://source.unsplash.com/tvg2AeJHfbM",
+// };
+
+// function createCardElement(cardData) {
+//   console.log("Creating card element with data: ", cardData);
+//   const card = new Card(cardData, cardSelector);
+//   return card.getView();
+// }
+
+// function renderCardElement(cardData, cardSelector) {
+//   console.log("Rendering card element with data: ", cardData);
+//   const card = createCardElement(cardData, cardSelector);
+//   cardsList.append(card);
+// }
+
+function renderCard(cardData) {
+  const card = new Card(cardData, cardSelector);
+  cardsList.prepend(card.getView());
 }
 
-// TODO render the card elements on the page
-function renderCardElement(cardData) {
-  const card = createCardElement(cardData, cardSelector);
-  // prepend the new card to the existing card list
-  // cardsWrap.prepend(card);
-}
-
-// TODO render the initial cards on load
-/* Add initial cards on load */
-initialCards.forEach((cardData, index) => {
-  // create a new card element
-  // cardsWrap.append(getCardElement(cardData));
-  // renderCardElement(cardData);
+initialCards.forEach(function (cardData) {
+  renderCard(cardData, cardsList);
 });
+
+// function createFakeCardElement(fakeData) {
+//   const card = new Card(fakeData, cardSelector);
+//   return card.getView();
+// }
+
+// function renderFakeCardElement(fakeData) {
+//   const card = createFakeCardElement(fakeData);
+//   cardsList.append(card);
+// }
+
+// renderFakeCardElement(fakeData);
