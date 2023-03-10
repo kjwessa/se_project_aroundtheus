@@ -156,12 +156,6 @@ newCardForm.addEventListener("submit", (evt) => {
   // newCardForm.reset();
 });
 
-// Define the card selector
-// const fakeData = {
-//   name: "Zion National Park",
-//   link: "https://source.unsplash.com/tvg2AeJHfbM",
-// };
-
 // function createCardElement(cardData) {
 //   console.log("Creating card element with data: ", cardData);
 //   const card = new Card(cardData, cardSelector);
