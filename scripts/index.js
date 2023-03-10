@@ -156,18 +156,6 @@ newCardForm.addEventListener("submit", (evt) => {
   // newCardForm.reset();
 });
 
-// function createCardElement(cardData) {
-//   console.log("Creating card element with data: ", cardData);
-//   const card = new Card(cardData, cardSelector);
-//   return card.getView();
-// }
-
-// function renderCardElement(cardData, cardSelector) {
-//   console.log("Rendering card element with data: ", cardData);
-//   const card = createCardElement(cardData, cardSelector);
-//   cardsList.append(card);
-// }
-
 function renderCard(cardData) {
   const card = new Card(cardData, cardSelector);
   cardsList.prepend(card.getView());
@@ -176,15 +164,3 @@ function renderCard(cardData) {
 initialCards.forEach(function (cardData) {
   renderCard(cardData, cardsList);
 });
-
-// function createFakeCardElement(fakeData) {
-//   const card = new Card(fakeData, cardSelector);
-//   return card.getView();
-// }
-
-// function renderFakeCardElement(fakeData) {
-//   const card = createFakeCardElement(fakeData);
-//   cardsList.append(card);
-// }
-
-// renderFakeCardElement(fakeData);
