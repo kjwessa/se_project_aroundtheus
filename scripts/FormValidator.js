@@ -26,13 +26,13 @@ export default class FormValidator {
   //   inputElement.classList.remove(errorClass);
   // }
 
-  // _checkInputValidity(formElement, inputElement, options) {
-  //   if (!inputElement.validity.valid) {
-  //     showInputError(formElement, inputElement, options);
-  //   } else {
-  //     hideInputError(formElement, inputElement, options);
-  //   }
-  // }
+  _checkInputValidity(inputElement) {
+    if (!inputElement.validity.valid) {
+      this._showInputError(inputElement);
+    } else {
+      this._hideInputError(inputElement);
+    }
+  }
 
   _disableButton() {
     this._submitButton.classList.add(this._inactiveButtonClass);
@@ -44,9 +44,8 @@ export default class FormValidator {
     this._submitButton.disabled = false;
   }
 
-  // TODO This needs to be refactored
   _hasInvalidInput(inputList) {
-    return !inputList.every((inputElement) => inputElement.validity.valid);
+    return !this._inputList.every((inputElement) => inputElement.validity.valid);
   }
 
   _toggleButtonState() {
@@ -79,22 +78,4 @@ export default class FormValidator {
     });
     this._setEventListeners();
   }
-
-  //write hello world
 }
-
-// const settings = {
-//   formSelector: ".modal__form-container",
-//   inputSelector: ".modal__form-input",
-//   submitButtonSelector: ".modal__button",
-//   inactiveButtonClass: "modal__button_disabled",
-//   inputErrorClass: "modal__form-input_type_error",
-//   errorClass: "modal__error_visible",
-// };
-
-// const editFormValidator = new FormValidator();
-
-// const editFormValidator = new FormValidator();
-// editFormValidator.enableValidation();
-
-// const addFormValidator = new FormValidator(settings, addForm);
