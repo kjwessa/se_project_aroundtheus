@@ -64,10 +64,10 @@ const cardsList = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
 const cardSelector = "#card-template";
 
-// TODO Make sure this moves to index.js
+// !FORM VALIDATION
+
 // This object contains the configuration options for the form validation
 const configObject = {
-  // formSelector: ".modal__form-container",
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
@@ -103,6 +103,11 @@ profileEditButton.addEventListener("click", () => {
 });
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
+
+function renderCard(cardData) {
+  const card = new Card(cardData, cardSelector);
+  cardsList.prepend(card.getView());
+}
 
 /* New Card Modal Event Listeners */
 newCardOpenButton.addEventListener("click", () => {
@@ -167,11 +172,6 @@ newCardForm.addEventListener("submit", (evt) => {
   // closeModal(newCardModal);
   // newCardForm.reset();
 });
-
-function renderCard(cardData) {
-  const card = new Card(cardData, cardSelector);
-  cardsList.prepend(card.getView());
-}
 
 initialCards.forEach(function (cardData) {
   renderCard(cardData, cardsList);
