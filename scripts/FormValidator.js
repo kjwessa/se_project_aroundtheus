@@ -34,28 +34,20 @@ export default class FormValidator {
   //   }
   // }
 
-  // _hasInvalidInput(inputList) {
-  //   return !inputList.every((inputElement) => inputElement.validity.valid);
-  // }
-
-  // _disableButton(submitButton, inactiveButtonClass) {
+  // _disableButton() {
   //   submitButton.classList.add(inactiveButtonClass);
   //   submitButton.disabled = true;
   // }
 
-  // _enableButton(submitButton, inactiveButtonClass) {
-  //   submitButton.classList.remove(inactiveButtonClass);
-  //   submitButton.disabled = false;
-  // }
+  _enableButton() {
+    this._submitButton.classList.remove(this._inactiveButtonClass);
+    this._submitButton.disabled = false;
+  }
 
-  // _toggleButtonState(inputElements, submitButton, { inactiveButtonClass }) {
-  //   if (hasInvalidInput(inputElements)) {
-  //     disableButton(submitButton, inactiveButtonClass);
-  //     return;
-  //   }
-
-  //   enableButton(submitButton, inactiveButtonClass);
-  // }
+  // TODO This needs to be refactored
+  _hasInvalidInput(inputList) {
+    return !inputList.every((inputElement) => inputElement.validity.valid);
+  }
 
   _toggleButtonState() {
     if (this._hasInvalidInput) {
