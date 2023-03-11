@@ -1,5 +1,6 @@
 import Card from "./Card.js";
 import { openModal, closeModal, closeModalOnEscape, closeModalOnClick } from "./utils.js";
+import FormValidator from "./FormValidator.js";
 
 /* Initial Card Data */
 const initialCards = [
@@ -63,6 +64,17 @@ const cardsList = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
 const cardSelector = "#card-template";
 
+// TODO Make sure this moves to index.js
+// This object contains the configuration options for the form validation
+const configObject = {
+  // formSelector: ".modal__form-container",
+  inputSelector: ".modal__form-input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__form-input_type_error",
+  errorClass: "modal__error_visible",
+};
+
 /* Close Buttons */
 const closeButtons = document.querySelectorAll(".modal__close-button");
 
@@ -121,19 +133,19 @@ function handlePreviewImage(cardData) {
 // TODO - Remove this which is being replaced by Card.js once the functionality is implemented and see if any remaining functionality is needed
 /* Insert Cards on the page */
 // function getCardElement(cardData) {
-//   // const cardElement = cardTemplate.cloneNode(true);
+// const cardElement = cardTemplate.cloneNode(true);
 
-//   // const cardImage = cardElement.querySelector(".card__image");
+// const cardImage = cardElement.querySelector(".card__image");
 //   const cardTitle = cardElement.querySelector(".card__title");
-//   // const likeButton = cardElement.querySelector(".card__like-button");
-//   // const deleteButton = cardElement.querySelector(".card__delete-button");
+// const likeButton = cardElement.querySelector(".card__like-button");
+// const deleteButton = cardElement.querySelector(".card__delete-button");
 
-//   // cardImage.src = cardData.link;
-//   // cardImage.alt = cardData.name;
+// cardImage.src = cardData.link;
+// cardImage.alt = cardData.name;
 //   cardTitle.textContent = cardData.name;
 
-//   // likeButton.addEventListener("click", handleLikeButton);
-//   // deleteButton.addEventListener("click", handleDeleteButton);
+// likeButton.addEventListener("click", handleLikeButton);
+// deleteButton.addEventListener("click", handleDeleteButton);
 //   cardImage.addEventListener("click", () => {
 //     handlePreviewImage(cardData);
 //   });
@@ -141,7 +153,7 @@ function handlePreviewImage(cardData) {
 //   return cardElement;
 // }
 
-// TODO Adjust
+// TODO Adjust this function to handle new incoming cards
 /* New Card Added Event Listener */
 newCardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();

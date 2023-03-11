@@ -34,6 +34,7 @@ export default class Card {
     this._cardElement = null;
   }
 
+  // TODO finish the preview image functionality when the modal functionality is completed
   // method that handles previewing an image
   _handlePreviewImage() {}
 
