@@ -34,10 +34,10 @@ export default class FormValidator {
   //   }
   // }
 
-  // _disableButton() {
-  //   submitButton.classList.add(inactiveButtonClass);
-  //   submitButton.disabled = true;
-  // }
+  _disableButton() {
+    this._submitButton.classList.add(this._inactiveButtonClass);
+    this._disableButton.disabled = true;
+  }
 
   _enableButton() {
     this._submitButton.classList.remove(this._inactiveButtonClass);
