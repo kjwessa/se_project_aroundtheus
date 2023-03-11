@@ -64,7 +64,7 @@ const cardsList = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
 const cardSelector = "#card-template";
 
-// !FORM VALIDATION
+//! Validate the forms
 
 // This object contains the configuration options for the form validation
 const configObject = {
@@ -85,6 +85,20 @@ const addFormValidator = new FormValidator(configObject, document.querySelector(
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
+//! Render the Cards
+function renderCard(cardData) {
+  const card = new Card(cardData, cardSelector);
+  cardsList.prepend(card.getView());
+}
+
+//! Event Handlers
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  profileTitle.textContent = profileNameInput.value;
+  profileSubTitle.textContent = profileJobInput.value;
+  closeModal(profileEditModal);
+}
+
 /* Close Buttons */
 const closeButtons = document.querySelectorAll(".modal__close-button");
 
@@ -99,13 +113,6 @@ function fillProfileInputs() {
   profileJobInput.value = profileSubTitle.textContent;
 }
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  profileTitle.textContent = profileNameInput.value;
-  profileSubTitle.textContent = profileJobInput.value;
-  closeModal(profileEditModal);
-}
-
 /* Edit Profile Modal Event Listeners */
 profileEditButton.addEventListener("click", () => {
   fillProfileInputs();
@@ -113,17 +120,6 @@ profileEditButton.addEventListener("click", () => {
 });
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
-
-function renderCard(cardData) {
-  const card = new Card(cardData, cardSelector);
-  cardsList.prepend(card.getView());
-}
-
-/* New Card Modal Event Listeners */
-newCardOpenButton.addEventListener("click", () => {
-  // toggleButtonState(newCardInputs, newCardSubmitButton, configObject);
-  openModal(newCardModal);
-});
 
 // TODO - Remove the like button handler
 /* Like Button Toggle */
@@ -167,6 +163,14 @@ function handlePreviewImage(cardData) {
 
 //   return cardElement;
 // }
+
+//! Set Event Listeners
+/* New Card Modal Event Listeners */
+newCardOpenButton.addEventListener("click", () => {
+  // TODO create the resetValidation method in FormValidator JS and then add it here
+  // addFormValidator.resetValidation();
+  openModal(newCardModal);
+});
 
 //! New Card Added Event Listeners
 newCardForm.addEventListener("submit", (evt) => {
