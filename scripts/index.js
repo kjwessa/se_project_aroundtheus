@@ -75,6 +75,16 @@ const configObject = {
   errorClass: "modal__error_visible",
 };
 
+const editFormValidator = new FormValidator(
+  configObject,
+  document.querySelector("#profileEditModal")
+);
+
+const addFormValidator = new FormValidator(configObject, document.querySelector("#newCardModal"));
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+
 /* Close Buttons */
 const closeButtons = document.querySelectorAll(".modal__close-button");
 
@@ -158,7 +168,7 @@ function handlePreviewImage(cardData) {
 //   return cardElement;
 // }
 
-/* New Card Added Event Listener */
+//! New Card Added Event Listeners
 newCardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const newCardTitle = evt.target.title.value;
@@ -169,6 +179,7 @@ newCardForm.addEventListener("submit", (evt) => {
   newCardForm.reset();
 });
 
+//! Initial Card Data on Load
 initialCards.forEach(function (cardData) {
   renderCard(cardData, cardsList);
 });
