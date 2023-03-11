@@ -158,19 +158,15 @@ function handlePreviewImage(cardData) {
 //   return cardElement;
 // }
 
-// TODO Adjust this function to handle new incoming cards
 /* New Card Added Event Listener */
 newCardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const newCardTitle = evt.target.title.value;
   const newCardLink = evt.target.link.value;
-  // const cardElement = getCardElement({
-  //   name: newCardTitle,
-  //   link: newCardLink,
-  // });
-  // cardsWrap.prepend(cardElement);
-  // closeModal(newCardModal);
-  // newCardForm.reset();
+  const cardData = { newCardTitle, newCardLink };
+  renderCard(cardData, cardsList);
+  closeModal(newCardModal);
+  newCardForm.reset();
 });
 
 initialCards.forEach(function (cardData) {
