@@ -9,22 +9,19 @@ export default class FormValidator {
     this._form = formElement;
   }
 
-  // _showInputError(formElement, inputElement, { inputErrorClass, errorClass }) {
-  //   const errorMessageElement = formElement.querySelector(`#${inputElement.id}-error`);
+  _showInputError(inputElement) {
+    const errorMessageElement = this._form.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.add(this._inputErrorClass);
+    errorMessageElement.textContent = inputElement.validationMessage;
+    inputElement.classList.add(this._errorClass);
+  }
 
-  //   inputElement.classList.add(inputErrorClass);
-
-  //   errorMessageElement.textContent = inputElement.validationMessage;
-
-  //   inputElement.classList.add(errorClass);
-  // }
-
-  // _hideInputError(formElement, inputElement, { inputErrorClass, errorClass }) {
-  //   const errorMessageElement = formElement.querySelector(`#${inputElement.id}-error`);
-  //   inputElement.classList.remove(inputErrorClass);
-  //   errorMessageElement.textContent = "";
-  //   inputElement.classList.remove(errorClass);
-  // }
+  _hideInputError(inputElement) {
+    const errorMessageElement = this._form.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.remove(this._inputErrorClass);
+    errorMessageElement.textContent = "";
+    inputElement.classList.remove(this._errorClass);
+  }
 
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
@@ -62,7 +59,7 @@ export default class FormValidator {
 
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
 
-    this.disableButton();
+    this._disableButton();
 
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", (evt) => {
