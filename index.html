@@ -27,11 +27,19 @@
             alt="Avatar Jacques Cousteau"
             class="profile__avatar" />
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
-            <button class="profile__edit-button" type="button" aria-label="edit"></button>
-            <p class="profile__subtitle">Explorer</p>
+            <h1 class="profile__title" id="profileTitle">Jacques Cousteau</h1>
+            <button
+              class="profile__edit-button"
+              type="button"
+              aria-label="edit"
+              id="profileEditButton"></button>
+            <p class="profile__subtitle" id="profileSubtitle">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button" aria-label="add"></button>
+          <button
+            class="profile__add-button"
+            type="button"
+            aria-label="add"
+            id="newCardButton"></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list"></ul>
@@ -113,19 +121,20 @@
         </form>
       </div>
       <!-- Card Preview Modal -->
-      <div class="modal" id="cardPreviewModal">
+      <div class="modal" id="previewImageModal">
         <div class="modal__preview">
           <button class="modal__close-button" type="button" aria-label="close modal"></button>
-          <img src=" " alt=" " class="modal__preview-image" />
-          <p class="modal__caption"></p>
+          <img src=" " alt=" " class="modal__preview-image" id="previewImage" />
+          <p class="modal__caption" id="previewCaption"></p>
         </div>
       </div>
-      <template id="card-template">
+      <!-- Card Preview Modal -->
+      <template id="cardTemplate">
         <li class="card">
-          <img src=" " alt=" " class="card__image" />
+          <img src=" " alt=" " class="card__image" id="cardImage" />
           <button class="card__delete-button" type="button" aria-label="delete the post"></button>
           <div class="card__description">
-            <h2 class="card__title"></h2>
+            <h2 class="card__title" id="cardTitle"></h2>
             <button class="card__like-button" type="button" aria-label="like the post"></button>
           </div>
         </li>
