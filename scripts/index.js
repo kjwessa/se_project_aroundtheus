@@ -31,7 +31,7 @@ const initialCards = [
 ];
 
 //* Identify the modals and their overlays as elements
-const previewImageModal = document.querySelector("#previewImageModal");
+
 const newCardModal = document.querySelector("#newCardModal");
 const profileEditModal = document.querySelector("#profileEditModal");
 const modals = document.querySelectorAll(".modal");
@@ -66,10 +66,6 @@ const cardSelector = "#cardTemplate";
 
 //* Find the cards list
 const cardsList = document.querySelector(".cards__list");
-
-//* Find the image and its name inside of the modal
-const previewImage = document.querySelector("#previewImage");
-const previewCaption = document.querySelector("previewCaption");
 
 //* This object contains the configuration options for the form validation
 const validationSettings = {
@@ -119,24 +115,16 @@ modals.forEach((modal) => {
   modal.addEventListener("click", () => closeModalOnClick(modal));
 });
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  profileTitle.textContent = profileNameInput.value;
-  profileSubTitle.textContent = profileJobInput.value;
-  closeModal(profileEditModal);
-}
+// function handleProfileFormSubmit(evt) {
+//   evt.preventDefault();
+//   profileTitle.textContent = profileNameInput.value;
+//   profileSubTitle.textContent = profileJobInput.value;
+//   closeModal(profileEditModal);
+// }
 
 //* Submit the edit form
-editFormElement.addEventListener("submit", (evt) => {
+function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  profileTitle.textContent = profileNameInput.value;
-  profileSubTitle.textContent = profileJobInput.value;
-  closeModal(profileEditModal);
-});
-
-function submitAddForm(evt) {
-  evt.preventDefault();
-  // find form elements
   const newCardTitle = evt.target.title.value;
   const newCardLink = evt.target.link.value;
   renderCard({ newCardTitle, newCardLink }, cardsList);
@@ -145,7 +133,16 @@ function submitAddForm(evt) {
   evt.target.reset();
 }
 
-addFormElement.addEventListener("submit", submitAddForm);
+addFormElement.addEventListener("submit", handleAddCardSubmit);
+
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  profileTitle.textContent = profileNameInput.value;
+  profileSubTitle.textContent = profileJobInput.value;
+  closeModal(profileEditModal);
+}
+
+editFormElement.addEventListener("submit", handleProfileFormSubmit);
 
 function renderCard(cardData) {
   const card = new Card(cardData, cardSelector);
