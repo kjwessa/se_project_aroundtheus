@@ -1,25 +1,26 @@
-import { openModal } from "./utils.js";
-
-// const previewImageModal = document.querySelector("#previewImageModal");
-// const previewImage = document.querySelector("#previewImage");
-// const previewCaption = document.querySelector("previewCaption");
+import { openModal, previewImageModal, previewImage, previewCaption } from "./utils.js";
 
 class Card {
-  constructor({ name, link }, cardSelector) {
-    this._name = name;
-    this._link = link;
+  constructor(cardData, cardSelector) {
+    this._name = cardData.name;
+    this._link = cardData.link;
+
     this._cardSelector = cardSelector;
+    this._cardData = cardData;
   }
 
   _setEventListeners() {
-    const likeButton = this._cardElement.querySelector(".card__like-button");
-    likeButton.addEventListener("click", this._handleLikeButton.bind(this));
+    this._cardElement
+      .querySelector(".card__like-button")
+      .addEventListener("click", () => this._handleLikeButton());
 
-    const deleteButton = this._cardElement.querySelector(".card__delete-button");
-    deleteButton.addEventListener("click", this._handleDeleteButton.bind(this));
+    this._cardElement
+      .querySelector(".card__delete-button")
+      .addEventListener("click", () => this._handleDeleteButton());
 
-    // this._imageWindow = this._cardElement.querySelector("#previewImage");
-    // this._imageWindow.addEventListener("click", this._handlePreviewImage(previewImageModal));
+    this._cardElement
+      .querySelector(".card__image")
+      .addEventListener("click", () => this._handlePreviewImageModal());
   }
 
   _handleLikeButton() {
@@ -33,14 +34,12 @@ class Card {
     this._cardElement = null;
   }
 
-  // _handleCardImageModal(previewImageModal) {
-  //   previewImage.src = this._link;
-
-  //   previewImage.alt = this._name;
-  //   previewImage.textContent = this._name;
-
-  //   openModal(previewImageModal);
-  // }
+  _handlePreviewImageModal() {
+    previewImage.src = this._link;
+    previewImage.alt = this._name;
+    previewCaption.textContent = this._name;
+    openModal(previewImageModal);
+  }
 
   _getCardTemplate() {
     return document

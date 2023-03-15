@@ -1,3 +1,7 @@
+export const previewImageModal = document.getElementById("preview-image-modal");
+export const previewImage = document.getElementById("preview-image");
+export const previewCaption = document.getElementById("preview-caption");
+
 function openModal(modalName) {
   modalName.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalOnEscape);
