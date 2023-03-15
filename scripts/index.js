@@ -115,13 +115,6 @@ modals.forEach((modal) => {
   modal.addEventListener("click", () => closeModalOnClick(modal));
 });
 
-// function handleProfileFormSubmit(evt) {
-//   evt.preventDefault();
-//   profileTitle.textContent = profileNameInput.value;
-//   profileSubTitle.textContent = profileJobInput.value;
-//   closeModal(profileEditModal);
-// }
-
 //* Submit the edit form
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
