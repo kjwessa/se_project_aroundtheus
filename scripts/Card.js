@@ -50,6 +50,7 @@ class Card {
 
   getView() {
     this._cardElement = this._getCardTemplate();
+    this._setEventListeners();
 
     const cardImage = this._cardElement.querySelector(".card__image");
     cardImage.src = this._link;
@@ -57,8 +58,6 @@ class Card {
 
     const cardTitle = this._cardElement.querySelector(".card__title");
     cardTitle.textContent = this._name;
-
-    this._setEventListeners();
 
     return this._cardElement;
   }

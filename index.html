@@ -27,19 +27,19 @@
             alt="Avatar Jacques Cousteau"
             class="profile__avatar" />
           <div class="profile__info">
-            <h1 class="profile__title" id="profileTitle">Jacques Cousteau</h1>
+            <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>
             <button
               class="profile__edit-button"
               type="button"
               aria-label="edit"
-              id="profileEditButton"></button>
-            <p class="profile__subtitle" id="profileSubtitle">Explorer</p>
+              id="profile-edit-button"></button>
+            <p class="profile__subtitle" id="profile-subtitle">Explorer</p>
           </div>
           <button
             class="profile__add-button"
             type="button"
             aria-label="add"
-            id="newCardButton"></button>
+            id="new-card-add-button"></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list"></ul>
@@ -49,8 +49,8 @@
         <p class="footer__copyright">© 2022 Around the US</p>
       </footer>
       <!-- Edit Profile Modal -->
-      <div class="modal" id="profileEditModal">
-        <form class="modal__form-container">
+      <div class="modal" id="profile-edit-modal">
+        <form class="modal__form-container" id="profile-edit-form">
           <h3 class="modal__title">Edit Profile</h3>
           <fieldset class="modal__form-fieldset">
             <label class="modal__label">
@@ -81,12 +81,16 @@
           <fieldset class="modal__form-fieldset">
             <button type="submit" class="modal__button" aria-label="submit">Save</button>
           </fieldset>
-          <button class="modal__close-button" type="button" aria-label="close modal"></button>
+          <button
+            class="modal__close-button"
+            type="button"
+            aria-label="close modal"
+            id="profile-close-button"></button>
         </form>
       </div>
       <!-- New Card Modal -->
-      <div class="modal" id="newCardModal">
-        <form class="modal__form-container">
+      <div class="modal" id="new-card-modal">
+        <form class="modal__form-container" id="new-card-form">
           <h3 class="modal__title">New Place</h3>
           <fieldset class="modal__form-fieldset">
             <label class="modal__label">
@@ -117,7 +121,11 @@
               Create
             </button>
           </fieldset>
-          <button class="modal__close-button" type="button" aria-label="close modal"></button>
+          <button
+            class="modal__close-button"
+            type="button"
+            aria-label="close modal"
+            id="new-card-close-button"></button>
         </form>
       </div>
       <!-- Card Preview Modal -->
@@ -129,12 +137,12 @@
         </div>
       </div>
       <!-- Card Template -->
-      <template id="cardTemplate">
+      <template id="card-template">
         <li class="card">
           <img src=" " alt=" " class="card__image" id="card-image" />
           <button class="card__delete-button" type="button" aria-label="delete the post"></button>
           <div class="card__description">
-            <h2 class="card__title" id="cardTitle"></h2>
+            <h2 class="card__title" id="card-title"></h2>
             <button class="card__like-button" type="button" aria-label="like the post"></button>
           </div>
         </li>
