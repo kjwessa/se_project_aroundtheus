@@ -48,34 +48,20 @@ const newCardAddButton = document.querySelector("#new-card-add-button");
 const newCardCloseButton = document.querySelector("#new-card-close-button");
 const newCardForm = document.querySelector("#new-card-form");
 
+// Preview Image Elements
+const previewImageModal = document.querySelector("#preview-image-modal");
+const previewImageCloseButton = document.querySelector("#preview-image-close-button");
+
 // Cards List Element
 const cardsList = document.querySelector(".cards__list");
 
 // All Modal Elements
 const modals = document.querySelectorAll(".modal");
 
-//* Identify edit, add, and close buttons as elements
-
-const closeButtons = document.querySelectorAll(".modal__close-button");
-
-//* Find the Card Template
-const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
-
-//* Find the card title and image elements
-// const cardTitle = document.querySelector("#card-title");
-// const cardImage = document.querySelector("#card-image");
-
-//* Find the card and image inputs
-
-// const inputTitle = document.querySelector("#card-title");
-// const inputImage = document.querySelector("#card-link");
-
-//* Define the card selector
+// Define the card selector
 const cardSelector = "#card-template";
 
-//* Find the cards list
-
-//* This object contains the configuration options for the form validation
+// This object contains the validation settings
 const validationSettings = {
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__button",
@@ -84,15 +70,17 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-//* Find the edit and add forms in the DOM
-
-const editFormElement = profileEditModal.querySelector(".modal__form-container");
-const addFormElement = newCardModal.querySelector(".modal__form-container");
-
-const editFormValidator = new FormValidator(validationSettings, editFormElement);
-const addFormValidator = new FormValidator(validationSettings, addFormElement);
-
+const editFormValidator = new FormValidator(
+  validationSettings,
+  document.querySelector("#profile-edit-form")
+);
 editFormValidator.enableValidation();
+
+const addFormValidator = new FormValidator(
+  validationSettings,
+  document.querySelector("#new-card-form")
+);
+
 addFormValidator.enableValidation();
 
 //* Open the modal when users click on the edit button
@@ -113,15 +101,15 @@ newCardAddButton.addEventListener("click", () => {
 });
 
 //* Close Buttons
-closeButtons.forEach((button) => {
-  const modal = button.closest(".modal");
-  button.addEventListener("click", () => closeModal(modal));
-});
+// closeButtons.forEach((button) => {
+//   const modal = button.closest(".modal");
+//   button.addEventListener("click", () => closeModal(modal));
+// });
 
 //* Close the modal when the users click on the overlay
-modals.forEach((modal) => {
-  modal.addEventListener("click", () => closeModalOnClick(modal));
-});
+// modals.forEach((modal) => {
+//   modal.addEventListener("click", () => closeModalOnClick(modal));
+// });
 
 //* Submit the edit form
 function handleAddCardSubmit(evt) {
@@ -134,7 +122,7 @@ function handleAddCardSubmit(evt) {
   evt.target.reset();
 }
 
-addFormElement.addEventListener("submit", handleAddCardSubmit);
+// addFormElement.addEventListener("submit", handleAddCardSubmit);
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -143,7 +131,7 @@ function handleProfileFormSubmit(evt) {
   closeModal(profileEditModal);
 }
 
-editFormElement.addEventListener("submit", handleProfileFormSubmit);
+// editFormElement.addEventListener("submit", handleProfileFormSubmit);
 
 function renderCard(cardData) {
   const card = new Card(cardData, cardSelector);
@@ -154,3 +142,22 @@ function renderCard(cardData) {
 initialCards.forEach(function (cardData) {
   renderCard(cardData, cardsList);
 });
+
+//! UNSURE BELOW
+//* Identify edit, add, and close buttons as elements
+// const closeButtons = document.querySelectorAll(".modal__close-button");
+//* Find the card title and image elements
+// const cardTitle = document.querySelector("#card-title");
+// const cardImage = document.querySelector("#card-image");
+
+//* Find the card and image inputs
+
+// const inputTitle = document.querySelector("#card-title");
+// const inputImage = document.querySelector("#card-link");
+//* Find the Card Template
+// const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
+
+//* Find the edit and add forms in the DOM
+
+// const editFormElement = profileEditModal.querySelector(".modal__form-container");
+// const addFormElement = newCardModal.querySelector(".modal__form-container");
