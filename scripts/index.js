@@ -1,6 +1,6 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
-import { openModal, closeModal, closeModalOnClick, closeModalOnEscape } from "./utils.js";
+import { openModal, closeModal } from "./utils.js";
 
 /* Initial Card Data */
 const initialCards = [
@@ -70,10 +70,12 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
+// Form Validators
 const editFormValidator = new FormValidator(
   validationSettings,
   document.querySelector("#profile-edit-form")
 );
+
 editFormValidator.enableValidation();
 
 const addFormValidator = new FormValidator(
@@ -83,81 +85,64 @@ const addFormValidator = new FormValidator(
 
 addFormValidator.enableValidation();
 
-//* Open the modal when users click on the edit button
+// Render the cards on the page
+function renderCard(cardData) {
+  const card = new Card(cardData, cardSelector);
+  cardsList.prepend(card.getView());
+}
+
+// Edit Profile Form Handler
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  profileTitle.textContent = profileNameInput.value;
+  profileSubTitle.textContent = profileDescriptionInput.value;
+  closeModal(profileEditModal);
+}
+
 function fillProfileInputs() {
   profileNameInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileSubTitle.textContent;
 }
 
-profileEditButton.addEventListener("click", () => {
+function handleProfileFormOpen(evt) {
   fillProfileInputs();
+  editFormValidator.resetValidation();
   openModal(profileEditModal);
-});
+}
 
-//* Open the modal when users click on the add button
-newCardAddButton.addEventListener("click", () => {
-  addFormValidator.resetValidation();
-  openModal(newCardModal);
-});
+// Edit Profile Form Listeners
+profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
-//* Close Buttons
-// closeButtons.forEach((button) => {
-//   const modal = button.closest(".modal");
-//   button.addEventListener("click", () => closeModal(modal));
-// });
+profileEditButton.addEventListener("click", handleProfileFormOpen);
 
-//* Close the modal when the users click on the overlay
-// modals.forEach((modal) => {
-//   modal.addEventListener("click", () => closeModalOnClick(modal));
-// });
+profileCloseButton.addEventListener("click", () => closeModal(profileEditModal));
 
-//* Submit the edit form
+// Add New Card Form Handler
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
   const newCardTitle = evt.target.title.value;
   const newCardLink = evt.target.link.value;
   renderCard({ newCardTitle, newCardLink }, cardsList);
   closeModal(newCardModal);
-  addFormValidator._disableButton();
   evt.target.reset();
 }
 
-// addFormElement.addEventListener("submit", handleAddCardSubmit);
-
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  profileTitle.textContent = profileNameInput.value;
-  profileSubTitle.textContent = profileJobInput.value;
-  closeModal(profileEditModal);
+function handleAddCardFormOpen(evt) {
+  addFormValidator.resetValidation();
+  openModal(newCardModal);
 }
 
-// editFormElement.addEventListener("submit", handleProfileFormSubmit);
+// Add New Card Form Listeners
+newCardForm.addEventListener("submit", handleAddCardSubmit);
 
-function renderCard(cardData) {
-  const card = new Card(cardData, cardSelector);
-  cardsList.prepend(card.getView());
-}
+newCardAddButton.addEventListener("click", handleAddCardFormOpen);
 
-//* Render the initial cards
+newCardCloseButton.addEventListener("click", () => closeModal(newCardModal));
+
+// Preview Image Listeners
+previewImageCloseButton.addEventListener("click", () => closeModal(previewImageModal));
+
+// Render the initial cards
 initialCards.forEach(function (cardData) {
   renderCard(cardData, cardsList);
 });
-
-//! UNSURE BELOW
-//* Identify edit, add, and close buttons as elements
-// const closeButtons = document.querySelectorAll(".modal__close-button");
-//* Find the card title and image elements
-// const cardTitle = document.querySelector("#card-title");
-// const cardImage = document.querySelector("#card-image");
-
-//* Find the card and image inputs
-
-// const inputTitle = document.querySelector("#card-title");
-// const inputImage = document.querySelector("#card-link");
-//* Find the Card Template
-// const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
-
-//* Find the edit and add forms in the DOM
-
-// const editFormElement = profileEditModal.querySelector(".modal__form-container");
-// const addFormElement = newCardModal.querySelector(".modal__form-container");
