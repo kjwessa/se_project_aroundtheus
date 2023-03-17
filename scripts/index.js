@@ -55,9 +55,6 @@ const previewImageCloseButton = document.querySelector("#preview-image-close-but
 // Cards List Element
 const cardsList = document.querySelector(".cards__list");
 
-// All Modal Elements
-const modals = document.querySelectorAll(".modal");
-
 // Define the card selector
 const cardSelector = "#card-template";
 
