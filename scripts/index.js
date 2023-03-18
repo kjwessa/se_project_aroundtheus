@@ -35,22 +35,22 @@ const initialCards = [
 // Profile Elements
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditButton = document.querySelector("#profile-edit-button");
-const profileCloseButton = document.querySelector("#profile-close-button");
 const profileTitle = document.querySelector("#profile-title");
 const profileSubTitle = document.querySelector("#profile-subtitle");
 const profileNameInput = document.querySelector("#owner-name");
 const profileDescriptionInput = document.querySelector("#owner-description");
 const profileEditForm = document.querySelector("#profile-edit-form");
 
+// Close Buttons
+const closeButtons = document.querySelectorAll(".modal__close-button");
+
 // New Card Elements
 const newCardModal = document.querySelector("#new-card-modal");
 const newCardAddButton = document.querySelector("#new-card-add-button");
-const newCardCloseButton = document.querySelector("#new-card-close-button");
 const newCardForm = document.querySelector("#new-card-form");
 
 // Preview Image Elements
 const previewImageModal = document.querySelector("#preview-image-modal");
-const previewImageCloseButton = document.querySelector("#preview-image-close-button");
 
 // Cards List Element
 const cardsList = document.querySelector(".cards__list");
@@ -112,8 +112,6 @@ profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 profileEditButton.addEventListener("click", handleProfileFormOpen);
 
-profileCloseButton.addEventListener("click", () => closeModal(profileEditModal));
-
 // Add New Card Form Handler
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
@@ -135,10 +133,12 @@ newCardForm.addEventListener("submit", handleAddCardSubmit);
 
 newCardAddButton.addEventListener("click", handleAddCardFormOpen);
 
-newCardCloseButton.addEventListener("click", () => closeModal(newCardModal));
-
-// Preview Image Listeners
-previewImageCloseButton.addEventListener("click", () => closeModal(previewImageModal));
+// Add event listeners to all close buttons
+closeButtons.forEach(function (button) {
+  // find the closest modal
+  const modal = button.closest(".modal");
+  button.addEventListener("click", () => closeModal(modal));
+});
 
 // Render the initial cards
 initialCards.forEach(function (cardData) {
