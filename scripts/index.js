@@ -125,6 +125,7 @@ function handleAddCardSubmit(evt) {
 }
 
 function handleAddCardFormOpen(evt) {
+  newCardForm.reset();
   addFormValidator.resetValidation();
   openModal(newCardModal);
 }
