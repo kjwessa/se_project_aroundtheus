@@ -82,10 +82,15 @@ const addFormValidator = new FormValidator(
 
 addFormValidator.enableValidation();
 
-// Render the cards on the page
-function renderCard(cardData) {
+// Create the cards
+function createCard(cardData) {
   const card = new Card(cardData, cardSelector);
-  cardsList.prepend(card.getView());
+  return card;
+}
+
+// Render the cards on the page
+function renderCard(cardInstance) {
+  cardsList.prepend(cardInstance.getView());
 }
 
 // Edit Profile Form Handler
@@ -117,7 +122,8 @@ function handleAddCardSubmit(evt) {
   evt.preventDefault();
   const newCardTitle = evt.target.title.value;
   const newCardLink = evt.target.link.value;
-  renderCard({ newCardTitle, newCardLink }, cardsList);
+  const cardInstance = createCard({ name: newCardTitle, link: newCardLink });
+  renderCard(cardInstance);
   closeModal(newCardModal);
   evt.target.reset();
 }
@@ -142,5 +148,6 @@ closeButtons.forEach(function (button) {
 
 // Render the initial cards
 initialCards.forEach(function (cardData) {
-  renderCard(cardData, cardsList);
+  const cardInstance = createCard(cardData);
+  renderCard(cardInstance);
 });
