@@ -2,15 +2,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   padding-top: 40px;
 }
@@ -18,12 +11,8 @@
 .profile__info {
   display: -ms-grid;
   display: grid;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -ms-grid-columns: minmax(auto, 373px);
   grid-template-columns: minmax(auto, 373px);
-  -ms-grid-rows: auto;
   grid-template-rows: auto;
   grid-template-areas:
     "title button"
@@ -37,7 +26,6 @@
   font-weight: 500;
   line-height: 1.15;
   margin: 0;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -46,7 +34,6 @@
 .profile__avatar {
   width: 120px;
   height: 120px;
-  -o-object-fit: cover;
   object-fit: cover;
   border-radius: 100%;
   margin-right: 30px;
@@ -55,7 +42,6 @@
 .profile__subtitle {
   grid-area: subtitle;
   margin: 0;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -69,8 +55,6 @@
   margin-bottom: 0;
   border: solid 1px white;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -86,8 +70,6 @@
   border: solid 2px white;
   border-radius: 2px;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -106,9 +88,6 @@
 
 @media screen and (max-width: 767px) {
   .profile {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     padding-top: 38.25px;
   }
@@ -121,10 +100,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     width: 100%;
   }
