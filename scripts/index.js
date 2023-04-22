@@ -2,7 +2,10 @@
 
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
-import { openModal, closeModal } from "./utils.js";
+// TODO Rewire index.js with the new PopupWithForm class
+import PopupWithForm from "./PopupWithForm.js";
+// TODO Remove the following import after testing the new classes
+// import { openModal, closeModal } from "./utils.js";
 
 /* Initial Card Data */
 const initialCards = [
@@ -95,6 +98,7 @@ function renderCard(cardInstance) {
   cardsList.prepend(cardInstance.getView());
 }
 
+// Refactor the modal open and close functions to use the new classes
 // Edit Profile Form Handler
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -108,6 +112,7 @@ function fillProfileInputs() {
   profileDescriptionInput.value = profileSubTitle.textContent;
 }
 
+// TODO Refactor the modal open and close functions to use the new classes
 function handleProfileFormOpen(evt) {
   fillProfileInputs();
   editFormValidator.resetValidation();
@@ -119,6 +124,7 @@ profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 profileEditButton.addEventListener("click", handleProfileFormOpen);
 
+// TODO Refactor the modal open and close functions to use the new classes
 // Add New Card Form Handler
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
@@ -130,6 +136,7 @@ function handleAddCardSubmit(evt) {
   evt.target.reset();
 }
 
+// TODO Refactor the modal open and close functions to use the new classes
 function handleAddCardFormOpen(evt) {
   newCardForm.reset();
   addFormValidator.resetValidation();
@@ -141,6 +148,7 @@ newCardForm.addEventListener("submit", handleAddCardSubmit);
 
 newCardAddButton.addEventListener("click", handleAddCardFormOpen);
 
+// TODO Refactor the modal open and close functions to use the new classes
 // Add event listeners to all close buttons
 closeButtons.forEach(function (button) {
   // find the closest modal

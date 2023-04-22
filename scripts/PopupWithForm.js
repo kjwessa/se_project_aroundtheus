@@ -8,24 +8,32 @@
 // It modifies the close() parent method in order to reset the form once the popup is closed.
 // Create an instance of the PopupWithForm class for each popup.
 
-// TODO Utilize the pseudocode below to create the PopupWithForm class
-// Import Popup class from "./Popup.js"
-// Define a new class named PopupWithForm, which extends Popup
-// Create a constructor for PopupWithForm with parameters (popupSelector, handleFormSubmit)
-// Call the constructor of the superclass (Popup) with an object containing the property popupSelector
-// Find and store the popup form element in the property _popupForm
-// Find and store all input elements in the form as an array in the property _inputList
-// Find and store the save button element in the property _saveButton
-// Store the handleFormSubmit callback in the property _handleFormSubmit
-// Define a private method _getInputValues
-// Create an empty object called formValues
-// For each input element in _inputList, add a new property to formValues with the key as the input's name and the value as the input's value
-// Return formValues
-// Define method setEventListeners
-// Call the setEventListeners method of the superclass (Popup)
-// Add an event listener for the "submit" event on the popup element
-//Prevent the default action for the submit event
-// Call the _handleFormSubmit callback with the result of calling _getInputValues()
-// Define method close
-// Call the close method of the superclass (Popup)
-// Reset the popup form
+import Popup from "./Popup.js";
+
+export default class PopupWithForm extends Popup {
+  constructor({ popupSelector, handleFormSubmit }) {}
+
+  // TODO Utilize the pseudocode below to create the PopupWithForm class
+  // Call the constructor of the superclass (Popup) with an object containing the property popupSelector
+  // Find and store the popup form element in the property _popupForm
+  // Find and store all input elements in the form as an array in the property _inputList
+  // Find and store the save button element in the property _saveButton
+  // Store the handleFormSubmit callback in the property _handleFormSubmit
+  // Define a private method _getInputValues
+  // Create an empty object called formValues
+  // For each input element in _inputList, add a new property to formValues with the key as the input's name and the value as the input's value
+  // Return formValues
+  // Define method setEventListeners
+  // Call the setEventListeners method of the superclass (Popup)
+  // Add an event listener for the "submit" event on the popup element
+  //Prevent the default action for the submit event
+  // Call the _handleFormSubmit callback with the result of calling _getInputValues()
+  // Define method close
+  // Call the close method of the superclass (Popup)
+  // Reset the popup form
+}
+
+// Pretend it's index.js
+// const newCardPopup = new PopupWithForm("#new-card-popup", (data) => {}");
+// newCardPopup.open();
+// newCardPopup.close();

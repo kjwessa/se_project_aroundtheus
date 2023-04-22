@@ -1,3 +1,5 @@
+// TODO refactor the import to pull from the Popup class
+
 import { openModal, previewImageModal, previewImage, previewCaption } from "./utils.js";
 
 // TODO Adjust the card class to follow the new requirements
