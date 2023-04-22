@@ -17,9 +17,9 @@ export default class PopupWithForm extends Popup {
     // TODO Return to this area if renaming .modal__form-container to .modal__form causes issues
     this._popupForm = this._popupElement.querySelector(".modal__form");
     // Find and store all input elements in the form as an array in the property _inputList
-
     this._inputList = this._popupForm.querySelectorAll(".modal__form-input");
     // Find and store the save button element in the property _saveButton
+    this._saveButton = this._popupForm.querySelector(".modal__submit-button");
     // Store the handleFormSubmit callback in the property _handleFormSubmit
   }
 

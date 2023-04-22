@@ -66,7 +66,7 @@ const cardSelector = "#card-template";
 // This object contains the validation settings
 const validationSettings = {
   inputSelector: ".modal__form-input",
-  submitButtonSelector: ".modal__button",
+  submitButtonSelector: ".modal__submit-button",
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__form-input_type_error",
   errorClass: "modal__error_visible",

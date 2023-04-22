@@ -89,7 +89,11 @@
   border-bottom: solid 1px #ff0000;
 }
 
-.modal__button {
+/* 
+TODO Return to this area if renaming the modal button creates issues
+
+*/
+.modal__submit-button {
   margin: 48px 0 0;
   background-color: black;
   color: white;
@@ -102,11 +106,11 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-.modal__button:hover:not(:disabled) {
+.modal__submit-button:hover:not(:disabled) {
   opacity: 0.8;
 }
 
-.modal__button_disabled {
+.modal__submit-button_disabled {
   opacity: 0.2;
   border: 1px solid #000000;
   background-color: rgba(0, 0, 0, 0.8);
