@@ -147,7 +147,10 @@ TODO Return to this area if renaming the modal button creates issues
   object-fit: cover;
 }
 
-.modal__caption {
+/* 
+TODO Return to this area if renaming the modal caption creates issues
+*/
+.modal__preview-caption {
   margin: 10px 0 0;
   font-size: 12px;
   line-height: 1.25;
@@ -178,7 +181,7 @@ TODO Return to this area if renaming the modal button creates issues
     padding: 0 22px;
   }
 
-  .modal__save-button {
+  .modal__submit-button {
     margin: 48px 0 0;
     font-size: 14px;
     height: 46px;

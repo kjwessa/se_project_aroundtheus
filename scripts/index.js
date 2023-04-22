@@ -4,6 +4,8 @@ import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 // TODO Rewire index.js with the new PopupWithForm class
 import PopupWithForm from "./PopupWithForm.js";
+// TODO Rewire index.js with the new PopupWithImage class
+import PopupWithImage from "./PopupWithImage.js";
 // TODO Remove the following import after testing the new classes
 // import { openModal, closeModal } from "./utils.js";
 

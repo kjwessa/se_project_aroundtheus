@@ -22,6 +22,7 @@ class Card {
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => this._handleLikeButton());
     this._deleteButton.addEventListener("click", () => this._handleDeleteButton());
+    // TODO Remove the functionality below now that there is a PopupWithImage class
     this._cardImage.addEventListener("click", () => this._handlePreviewImageModal());
   }
 
@@ -33,7 +34,7 @@ class Card {
     this._cardElement.remove();
     this._cardElement = null;
   }
-
+  // TODO remove the functionality below now that there is a PopupWithImage class
   _handlePreviewImageModal() {
     previewImage.src = this._link;
     previewImage.alt = this._name;
