@@ -1,3 +1,5 @@
+// TODO Adjust the index.js file to use the new classes
+
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 import { openModal, closeModal } from "./utils.js";

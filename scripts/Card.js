@@ -1,5 +1,8 @@
 import { openModal, previewImageModal, previewImage, previewCaption } from "./utils.js";
 
+// TODO Adjust the card class to follow the new requirements
+// Connect the Card class to the popup. Make Card take the handleCardClick() function into the constructor. When the user clicks on the card, this function will open the popup with an image.
+
 class Card {
   constructor(cardData, cardSelector) {
     this._name = cardData.name;

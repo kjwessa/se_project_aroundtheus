@@ -1,3 +1,5 @@
+// TODO Refactor this file and remove the functions that are no longer needed
+
 export const previewImageModal = document.getElementById("preview-image-modal");
 export const previewImage = document.getElementById("preview-image");
 export const previewCaption = document.getElementById("preview-caption");
