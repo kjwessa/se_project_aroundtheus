@@ -8,6 +8,8 @@ import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
 // TODO Remove the following import after testing the new classes
 // import { openModal, closeModal } from "./utils.js";
+// TODO Refactor the index.js file to use the new Section class
+import Section from "./Section.js";
 
 /* Initial Card Data */
 const initialCards = [
