@@ -1,6 +1,3 @@
-// TODO Follow the Practicum instructions below to create the PopupWithImage class
-// Create the PopupWithImage class as a child class of Popup. This class has to change the parent open() method. In the open() method of the PopupWithImage class, you need to add an image to the popup and the corresponding image src attribute along with a caption for the image.
-
 import Popup from "./Popup.js";
 
 export default class PopupWithImage extends Popup {
@@ -15,13 +12,17 @@ export default class PopupWithImage extends Popup {
     this._caption = this._popupElement.querySelector(".modal__preview-caption");
   }
 
-  // TODO Utilize the pseudocode below to create the PopupWithImage class
+  open(name, link) {
+    // Set the caption's text content to name
+    this._caption.textContent = name;
 
-  // Find and store the image element in the property _image
-  // Find and store the caption element in the property _caption
-  // Define method open with parameters (name, link)
-  // Set the caption's text content to name
-  // Set the image's source to link
-  // Set the image's alt attribute to name
-  // Call the open method of the superclass (Popup)
+    // Set the image's source to link
+    this._image.src = link;
+
+    // Set the image's alt attribute to name
+    this._image.alt = name;
+
+    // Call the open method of the superclass (Popup)
+    super.open();
+  }
 }
