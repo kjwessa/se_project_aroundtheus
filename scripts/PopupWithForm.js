@@ -11,7 +11,23 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor({ popupSelector, handleFormSubmit }) {}
+  constructor(popupSelector, handleFormSubmit) {
+    // Find and store the popup form element in the property _popupForm
+
+    // TODO Return to this area if renaming .modal__form-container to .modal__form causes issues
+    this._popupForm = this._popupElement.querySelector(".modal__form");
+    // Find and store all input elements in the form as an array in the property _inputList
+
+    this._inputList = this._popupForm.querySelectorAll(".modal__form-input");
+    // Find and store the save button element in the property _saveButton
+    // Store the handleFormSubmit callback in the property _handleFormSubmit
+  }
+
+  _getInputValues() {}
+
+  setEventListeners() {}
+
+  close() {}
 
   // TODO Utilize the pseudocode below to create the PopupWithForm class
   // Call the constructor of the superclass (Popup) with an object containing the property popupSelector

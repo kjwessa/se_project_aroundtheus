@@ -1,6 +1,5 @@
 // TODO Refactor this file and remove the functions that are no longer needed
 
-// Remove the following functions:
 // All of the following functionality is now handled by the Popup class
 export const previewImageModal = document.getElementById("preview-image-modal");
 export const previewImage = document.getElementById("preview-image");

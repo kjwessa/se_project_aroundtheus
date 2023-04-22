@@ -22,7 +22,7 @@
   pointer-events: all;
 }
 
-.modal__form-container {
+.modal__form {
   position: relative;
   color: black;
   background-color: white;
