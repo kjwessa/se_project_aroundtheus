@@ -10,99 +10,49 @@ import PopupWithImage from "./PopupWithImage.js";
 // import { openModal, closeModal } from "./utils.js";
 // TODO Refactor the index.js file to use the new Section class
 import Section from "./Section.js";
+// TODO Refactor the index.js file to use the new UserInfo class
+import UserInfo from "./UserInfo.js";
 
-/* Initial Card Data */
-const initialCards = [
-  {
-    name: "Grand Teton",
-    link: "https://source.unsplash.com/9nUcpfu476M/",
-  },
-  {
-    name: "Antelope Canyon",
-    link: "https://source.unsplash.com/7he8rO3qdsc",
-  },
-  {
-    name: "Glacier National Park",
-    link: "https://source.unsplash.com/qsngjpG5I5s",
-  },
-  {
-    name: "Yosemite National Park",
-    link: "https://source.unsplash.com/UCd78vfC8vU",
-  },
-  {
-    name: "Rockey Mountain National Park",
-    link: "https://source.unsplash.com/pq2DJBntZW0",
-  },
-  {
-    name: "Zion National Park",
-    link: "https://source.unsplash.com/tvg2AeJHfbM",
-  },
-];
-
+// TODO Refactor the constants received from constants.js
+import {
+  initialCards,
+  validationSettings,
+  profileEditModal,
+  profileEditButton,
+  profileTitle,
+  profileSubTitle,
+  profileNameInput,
+  profileDescriptionInput,
+  newCardModal,
+  newCardAddButton,
+} from "./constants.js";
 /* --------ELEMENTS-------- */
-
-// Profile Elements
-const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileEditButton = document.querySelector("#profile-edit-button");
-const profileTitle = document.querySelector("#profile-title");
-const profileSubTitle = document.querySelector("#profile-subtitle");
-const profileNameInput = document.querySelector("#owner-name");
-const profileDescriptionInput = document.querySelector("#owner-description");
-const profileEditForm = document.querySelector("#profile-edit-form");
-
-// Close Buttons
-const closeButtons = document.querySelectorAll(".modal__close-button");
-
-// New Card Elements
-const newCardModal = document.querySelector("#new-card-modal");
-const newCardAddButton = document.querySelector("#new-card-add-button");
-const newCardForm = document.querySelector("#new-card-form");
-
-// Preview Image Elements
-const previewImageModal = document.querySelector("#preview-image-modal");
-
-// Cards List Element
-const cardsList = document.querySelector(".cards__list");
-
-// Define the card selector
-const cardSelector = "#card-template";
-
-// This object contains the validation settings
-const validationSettings = {
-  inputSelector: ".modal__form-input",
-  submitButtonSelector: ".modal__submit-button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__form-input_type_error",
-  errorClass: "modal__error_visible",
-};
 
 // Form Validators
 const editFormValidator = new FormValidator(
   validationSettings,
-  document.querySelector("#profile-edit-form")
+  // TODO Return here if the selector is wrong
+  // changed from #profile-edit-form to profile-edit-modal
+  profileEditModal
 );
 
 editFormValidator.enableValidation();
 
 const addFormValidator = new FormValidator(
   validationSettings,
-  document.querySelector("#new-card-form")
+  // TODO Return here if the selector is wrong
+  // changed from #new-card-form to #new-card-modal
+  newCardModal
 );
 
 addFormValidator.enableValidation();
 
-// Create the cards
-function createCard(cardData) {
-  const card = new Card(cardData, cardSelector);
-  return card;
-}
+// Edit Profile Form Listeners
+profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
-// Render the cards on the page
-function renderCard(cardInstance) {
-  cardsList.prepend(cardInstance.getView());
-}
+profileEditButton.addEventListener("click", handleProfileFormOpen);
 
-// Refactor the modal open and close functions to use the new classes
+//TODO  Refactor the modal open and close functions to use the new classes
 // Edit Profile Form Handler
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -123,10 +73,16 @@ function handleProfileFormOpen(evt) {
   openModal(profileEditModal);
 }
 
-// Edit Profile Form Listeners
-profileEditForm.addEventListener("submit", handleProfileFormSubmit);
+// Create the cards
+function createCard(cardData) {
+  const card = new Card(cardData, cardSelector);
+  return card;
+}
 
-profileEditButton.addEventListener("click", handleProfileFormOpen);
+// Render the cards on the page
+function renderCard(cardInstance) {
+  cardsList.prepend(cardInstance.getView());
+}
 
 // TODO Refactor the modal open and close functions to use the new classes
 // Add New Card Form Handler

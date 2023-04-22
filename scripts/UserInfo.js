@@ -1,29 +1,45 @@
-//TODO Create the UserInfo class
+export default class UserInfo {
+  constructor({ userName, userJob, userAvatar }) {
+    // store the userName property in the property _userName
+    this._userName = userName;
 
-// TODO Follow the Practicum instructions below to create the UserInfo class
-// Creating the UserInfo class
-// The UserInfo class is responsible for rendering information about the user on the page. This class should:
-// Take an object with the selectors of two elements into the constructor: one containing the user's name, and another containing the user's job.
-// Store a public method named getUserInfo(), which returns an object with information about the user. This method will be handy for cases when it's necessary to display the user data in the open form.
-// Store a public method named setUserInfo(), which takes new user data and adds it on the page.
-// Create an instance of the UserInfo class in index.js. Use its method setUserInfo() to handle the form submission inside an instance of the PopupWithForm class.
+    // store the userJob property in the property _userDescription
+    this._userDescription = userJob;
 
-//TODO Utilize the pseudocode below to create the UserInfo class
-// Define a new class named UserInfo
-// Create a constructor for UserInfo with parameter {userName, userJon, userAvatar}
-// An object with properties:
-// Store the userName property in the property _userName
-// Store the userJob property in the property _userDescription
-// Store the userAvatar property in the property _userAvatar
-// Define method getUserInfo
-// Return an object with properties (name, about)
-// name: the text content of _userName
-// about: the text content of _userDescription
-// Define method setUserInfo with parameter (value)
-// Set the text content of _userName to the name property of value
-// Set the text content of _userDescription to the about property of value
-// Define method setAvatar with parameter (value)
-// Set the alt attribute of _userAvatar to the result of calling getUserInfo()
-// Set the source attribute of _userAvatar to value
-// Define method getAvatar
-// Return the source attribute of _userAvatar
+    // store the userAvatar property in the property _userAvatar
+    this._userAvatar = userAvatar;
+  }
+
+  getUserInfo() {
+    // Return an object with properties (name, about)
+    return {
+      // name: the text content of _userName
+      name: this._userName.textContent,
+
+      // about: the text content of _userDescription
+      about: this._userDescription.textContent,
+    };
+  }
+
+  setUserInfo(value) {
+    // Set the text content of _userName to the name property of value
+    this._userName.textContent = value.name;
+
+    // Set the text content of _userDescription to the about property of value
+    this._userDescription.textContent = value.about;
+  }
+
+  // TODO Determine if the setAvatar() and getAvatar() methods are necessary
+  setAvatar(value) {
+    // Set the alt attribute of _userAvatar to the result of calling getUserInfo()
+    this._userAvatar.alt = this.getUserInfo();
+
+    // Set the source attribute of _userAvatar to value
+    this._userAvatar.src = value;
+  }
+
+  getAvatar() {
+    // Return the source attribute of _userAvatar
+    return this._userAvatar.src;
+  }
+}
