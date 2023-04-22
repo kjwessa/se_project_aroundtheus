@@ -2,6 +2,7 @@ export default class Popup {
   constructor({ popupSelector }) {
     // Find and store the popup element using popupSelector in the property _popupElement
     this._popupElement = document.querySelector(popupSelector);
+
     // Bind the _handleEscape method to the current instance and store it in the property _handleEscape
     // TODO Consider refactoring this method to act like the _handleOverlay method
     this._handleEscape = this._handleEscape.bind(this);
@@ -10,6 +11,7 @@ export default class Popup {
   open() {
     // Add the class "modal_opened" to _popupElement's class list
     this._popupElement.classList.add("modal_opened");
+
     // Add an event listener for the "keydown" event on the document, using the _handleEscape method as the callback
     document.addEventListener("keydown", this._handleEscape);
   }
@@ -17,6 +19,7 @@ export default class Popup {
   close() {
     // Remove the "modal_opened" class from _popupElement's class list
     this._popupElement.classList.remove("modal_opened");
+
     // Remove the "keydown" event listener from the document
     document.removeEventListener("keydown", this._handleEscape);
   }
@@ -30,6 +33,7 @@ export default class Popup {
   }
 
   _handleOverlay = (evt) => {
+    // If the target of the event is the popup element or the close button, call the close method
     if (
       evt.target.classList.contains("modal_opened") ||
       evt.target.classList.contains("modal__close")
