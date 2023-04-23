@@ -111,7 +111,7 @@
     background: transparent url(../images/add-button-tablet.svg) center no-repeat;
   }
 
-  .profile__subtitle {
+  .profile__description {
     width: 100%;
     text-align: center;
   }
@@ -128,7 +128,7 @@
     line-height: 1.22;
   }
 
-  .profile__subtitle {
+  .profile__description {
     font-size: 14px;
     line-height: 1.21;
   }

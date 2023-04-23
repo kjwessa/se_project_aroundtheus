@@ -20,12 +20,13 @@ import {
   profileEditModal,
   profileEditButton,
   profileTitle,
-  profileSubTitle,
+  profileDescription,
   profileNameInput,
   profileDescriptionInput,
   newCardModal,
   newCardAddButton,
 } from "./constants.js";
+
 /* --------ELEMENTS-------- */
 
 // // Form Validators

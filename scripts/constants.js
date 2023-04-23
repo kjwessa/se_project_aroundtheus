@@ -39,7 +39,7 @@ export const validationSettings = {
 export const profileEditModal = document.querySelector("#profile-edit-modal");
 export const profileEditButton = document.querySelector("#profile-edit-button");
 export const profileTitle = document.querySelector("#profile-title");
-export const profileSubTitle = document.querySelector("#profile-subtitle");
+export const profileDescription = document.querySelector("#profile-description");
 export const profileNameInput = document.querySelector("#owner-name");
 export const profileDescriptionInput = document.querySelector("#owner-description");
 
