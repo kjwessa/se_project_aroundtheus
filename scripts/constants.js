@@ -36,16 +36,19 @@ export const validationSettings = {
 };
 
 // Profile Elements
-export const profileEditModal = document.querySelector("#profile-edit-modal");
-export const profileEditButton = document.querySelector("#profile-edit-button");
-export const profileTitle = document.querySelector("#profile-title");
-export const profileDescription = document.querySelector("#profile-description");
-export const profileNameInput = document.querySelector("#owner-name");
-export const profileDescriptionInput = document.querySelector("#owner-description");
+// export const profileEditModal = document.querySelector("#profile-edit-modal");
+// export const profileEditButton = document.querySelector("#profile-edit-button");
+// export const profileTitle = document.querySelector("#profile-title");
+// export const profileDescription = document.querySelector("#profile-description");
+// export const profileNameInput = document.querySelector("#owner-name");
+// export const profileDescriptionInput = document.querySelector("#owner-description");
 
 // New Card Elements
-export const newCardModal = document.querySelector("#new-card-modal");
-export const newCardAddButton = document.querySelector("#new-card-add-button");
+// export const newCardModal = document.querySelector("#new-card-modal");
+// export const newCardAddButton = document.querySelector("#new-card-add-button");
+
+// Cards List Element
+// export const cardsListElement = document.querySelector(".cards__list");
 
 // TODO determine if the classes below are still needed
 // const profileEditForm = document.querySelector("#profile-edit-form");
@@ -57,8 +60,5 @@ export const newCardAddButton = document.querySelector("#new-card-add-button");
 // Preview Image Elements
 // const previewImageModal = document.querySelector("#preview-image-modal");
 
-// Cards List Element
-// const cardsList = document.querySelector(".cards__list");
-
 // Define the card selector
-// const cardSelector = "#card-template";
+// export const cardSelector = "#card-template";
