@@ -1,19 +1,10 @@
-// TODO Adjust the index.js file to use the new classes
-
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
-// TODO Rewire index.js with the new PopupWithForm class
 import PopupWithForm from "./PopupWithForm.js";
-// TODO Rewire index.js with the new PopupWithImage class
 import PopupWithImage from "./PopupWithImage.js";
-// TODO Remove the following import after testing the new classes
-// import { openModal, closeModal } from "./utils.js";
-// TODO Refactor the index.js file to use the new Section class
 import Section from "./Section.js";
-// TODO Refactor the index.js file to use the new UserInfo class
 import UserInfo from "./UserInfo.js";
 
-// TODO Refactor the constants received from constants.js
 import { initialCards, validationSettings } from "./constants.js";
 
 /* --------ELEMENTS-------- */
