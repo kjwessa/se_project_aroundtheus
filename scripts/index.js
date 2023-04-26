@@ -38,6 +38,7 @@ const userInfo = new UserInfo({
 });
 
 //* Functions
+//TODO Find the missing selector functionality
 const editUserProfileModal = new PopupWithForm({
   modalSelector: "#profile-edit-modal",
   handleFormSubmit: (formData) => {

@@ -36,9 +36,9 @@ export const validationSettings = {
 };
 
 export const selectors = {
-  profileName: "#profile-name",
-  profileJob: "#profile-job",
-  profileEditModal: "#profile-edit-modal",
+  profileName: "#profile-name", //?
+  profileJob: "#profile-job", //?
+  profileEditModal: "#profile-edit-modal", //?
 };
 
 //* Profile Elements
