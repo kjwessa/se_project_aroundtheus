@@ -5,45 +5,40 @@ import PopupWithImage from "./PopupWithImage.js";
 import Section from "./Section.js";
 import UserInfo from "./UserInfo.js";
 
-import { initialCards, validationSettings } from "./constants.js";
+import {
+  initialCards,
+  validationSettings,
+  profileEditForm,
+  newCardModal,
+  selectors,
+} from "./constants.js";
 
 /* --------ELEMENTS-------- */
 
-// // Form Validators
-const editFormValidator = new FormValidator(
-  validationSettings,
-  // TODO Return here if the selector is wrong
-  // changed from #profile-edit-form to profile-edit-modal
-  profileEditModal
-);
+//* Form Validators
+const editFormValidator = new FormValidator(validationSettings, profileEditForm);
 
 editFormValidator.enableValidation();
 
-const addFormValidator = new FormValidator(
-  validationSettings,
-  // TODO Return here if the selector is wrong
-  // changed from #new-card-form to #new-card-modal
-  newCardModal
-);
+const addFormValidator = new FormValidator(validationSettings, newCardModal);
 
 addFormValidator.enableValidation();
 
-// // Edit Profile Form Listeners
-profileEditForm.addEventListener("submit", handleProfileFormSubmit);
+//* Classes
+const userInfo = new UserInfo({
+  nameSelector: selectors.profileTitle,
+  descriptionSelector: selectors.profileDescription,
+});
 
-// //TODO  Refactor the modal open and close functions to use the new classes
-// Edit Profile Form Handler
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  profileTitle.textContent = profileNameInput.value;
-  profileSubTitle.textContent = profileDescriptionInput.value;
-  closeModal(profileEditModal);
-}
+//* Functions
+const editUserProfileModal = new PopupWithForm({
+  modalSelector: "#profile-edit-modal",
+  handleFormSubmit: (formData) => {
+    userInfo.setUserInfo(formData);
+  },
+});
 
-function fillProfileInputs() {
-  profileNameInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileSubTitle.textContent;
-}
+editUserProfileModal.setEventListeners();
 
 // TODO Refactor the modal open and close functions to use the new classes
 
@@ -95,3 +90,7 @@ initialCards.forEach(function (cardData) {
   const cardInstance = createCard(cardData);
   renderCard(cardInstance);
 });
+
+//TODO Delete Items Below After Refactoring
+// // Edit Profile Form Listeners
+// profileEditForm.addEventListener("submit", handleProfileFormSubmit);

@@ -35,23 +35,30 @@ export const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-// Profile Elements
-// export const profileEditModal = document.querySelector("#profile-edit-modal");
+export const selectors = {
+  profileTitle: "#profile-title",
+  profileDescription: "#profile-description",
+  profileEditModal: "#profile-edit-modal",
+};
+
+//* Profile Elements
+
+export const profileEditForm = document.querySelector("#profile-edit-form");
+export const profileTitle = document.querySelector("#profile-title");
+export const profileDescription = document.querySelector("#profile-description");
 // export const profileEditButton = document.querySelector("#profile-edit-button");
-// export const profileTitle = document.querySelector("#profile-title");
-// export const profileDescription = document.querySelector("#profile-description");
+
 // export const profileNameInput = document.querySelector("#owner-name");
 // export const profileDescriptionInput = document.querySelector("#owner-description");
 
-// New Card Elements
-// export const newCardModal = document.querySelector("#new-card-modal");
+//* New Card Elements
+export const newCardModal = document.querySelector("#new-card-modal");
 // export const newCardAddButton = document.querySelector("#new-card-add-button");
 
 // Cards List Element
 // export const cardsListElement = document.querySelector(".cards__list");
 
 // TODO determine if the classes below are still needed
-// const profileEditForm = document.querySelector("#profile-edit-form");
 
 // Close Buttons
 // const closeButtons = document.querySelectorAll(".modal__close-button");

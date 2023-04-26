@@ -4,7 +4,6 @@ export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     // Call the constructor of the superclass (Popup) with an object containing the property popupSelector
     super({ popupSelector });
-    // TODO Return to this area if renaming .modal__form-container to .modal__form causes issues
     // Find and store the popup form element in the property _popupForm
     this._popupForm = this._popupElement.querySelector(".modal__form");
 
@@ -42,6 +41,12 @@ export default class PopupWithForm extends Popup {
 
       // Call the _handleFormSubmit callback with the result of calling _getInputValues()
       this._handleFormSubmit(this._getInputValues());
+    });
+  }
+
+  setInputValues(data) {
+    this._inputList.forEach((input) => {
+      input.value = data[input.name];
     });
   }
 
