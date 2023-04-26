@@ -16,18 +16,25 @@ import {
 /* --------ELEMENTS-------- */
 
 //* Form Validators
-const editFormValidator = new FormValidator(validationSettings, profileEditForm);
+const editFormValidator = new FormValidator(
+  validationSettings,
+  //TODO Abstract this at the end when everything is working
+  document.querySelector("#profile-edit-form")
+);
 
-editFormValidator.enableValidation();
-
-const addFormValidator = new FormValidator(validationSettings, newCardModal);
+const addFormValidator = new FormValidator(
+  validationSettings,
+  //TODO Abstract this at the end when everything is working
+  document.querySelector("#new-card-form")
+);
 
 addFormValidator.enableValidation();
+editFormValidator.enableValidation();
 
 //* Classes
 const userInfo = new UserInfo({
-  nameSelector: selectors.profileName,
-  descriptionSelector: selectors.profileDescription,
+  nameSelector: "#profile-name", //TODO Abstract this at the end when everything is working
+  jobSelector: "#profile-job", //TODO Abstract this at the end when everything is working
 });
 
 //* Functions

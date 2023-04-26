@@ -39,7 +39,7 @@
   margin-right: 30px;
 }
 
-.profile__subtitle {
+.profile__job {
   grid-area: subtitle;
   margin: 0;
   text-overflow: ellipsis;
@@ -111,7 +111,7 @@
     background: transparent url(../images/add-button-tablet.svg) center no-repeat;
   }
 
-  .profile__description {
+  .profile__job {
     width: 100%;
     text-align: center;
   }
@@ -128,7 +128,7 @@
     line-height: 1.22;
   }
 
-  .profile__description {
+  .profile__job {
     font-size: 14px;
     line-height: 1.21;
   }

@@ -37,7 +37,7 @@ export const validationSettings = {
 
 export const selectors = {
   profileName: "#profile-name",
-  profileDescription: "#profile-description",
+  profileJob: "#profile-job",
   profileEditModal: "#profile-edit-modal",
 };
 
@@ -45,7 +45,7 @@ export const selectors = {
 
 export const profileEditForm = document.querySelector("#profile-edit-form");
 export const profileName = document.querySelector("#profile-name");
-export const profileDescription = document.querySelector("#profile-description");
+export const profileJob = document.querySelector("#profile-job");
 // export const profileEditButton = document.querySelector("#profile-edit-button");
 
 // export const profileNameInput = document.querySelector("#owner-name");
