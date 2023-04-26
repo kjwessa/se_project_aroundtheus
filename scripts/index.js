@@ -26,7 +26,7 @@ addFormValidator.enableValidation();
 
 //* Classes
 const userInfo = new UserInfo({
-  nameSelector: selectors.profileTitle,
+  nameSelector: selectors.profileName,
   descriptionSelector: selectors.profileDescription,
 });
 

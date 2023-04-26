@@ -20,7 +20,7 @@
   gap: 16px 18px;
 }
 
-.profile__title {
+.profile__name {
   grid-area: title;
   font-size: 42px;
   font-weight: 500;
@@ -123,7 +123,7 @@
     height: 18px;
   }
 
-  .profile__title {
+  .profile__name {
     font-size: 22px;
     line-height: 1.22;
   }
