@@ -1,55 +1,55 @@
+//TODO Return to this file and add comments
+
 class Card {
-  constructor(cardData, cardSelector) {
+  constructor(cardData, cardSelector, handleImageClick) {
     this._name = cardData.name;
     this._link = cardData.link;
-
     this._cardSelector = cardSelector;
-    this._cardElement = this._getCardTemplate();
-    this._likeButton = this._cardElement.querySelector(".card__like-button");
-    this._deleteButton = this._cardElement.querySelector(".card__delete-button");
-    this._cardImage = this._cardElement.querySelector(".card__image");
-
-    this._setEventListeners();
+    this._cardData = cardData;
+    this._handleImageClick = handleImageClick;
   }
 
   _setEventListeners() {
-    this._likeButton.addEventListener("click", () => this._handleLikeButton());
-    this._deleteButton.addEventListener("click", () => this._handleDeleteButton());
-    // TODO Remove the functionality below now that there is a PopupWithImage class
-    this._cardImage.addEventListener("click", () => this._handlePreviewImageModal());
+    this._cardLikeButton.addEventListener("click", () => this._handleLikeIcon());
+
+    this._cardElement.querySelector(".card__delete-button").addEventListener("click", () => {
+      this._handleDeleteIcon();
+    });
+
+    this._cardImage.addEventListener("click", () => {
+      this._handleImageClick({ name: this._name, link: this._link });
+    });
   }
 
-  _handleLikeButton() {
-    this._likeButton.classList.toggle("card__like-button_is-active");
+  _handleLikeIcon() {
+    this._cardLikeButton.classList.toggle("card__like-button_is-active");
   }
 
-  _handleDeleteButton() {
+  _handleDeleteIcon() {
     this._cardElement.remove();
     this._cardElement = null;
   }
-  // TODO remove the functionality below now that there is a PopupWithImage class
-  _handlePreviewImageModal() {
-    previewImage.src = this._link;
-    previewImage.alt = this._name;
-    previewCaption.textContent = this._name;
-    openModal(previewImageModal);
-  }
 
   _getCardTemplate() {
-    return document
+    const cardTemplate = document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+
+    return cardTemplate;
   }
 
   getView() {
-    const cardImage = this._cardImage;
-    cardImage.src = this._link;
-    cardImage.alt = `A photo of ${this._name}`;
+    this._cardElement = this._getCardTemplate();
+    this._cardImage = this._cardElement.querySelector(".card__image");
+    this._addCardTitle = this._cardElement.querySelector(".card__title");
+    this._cardLikeButton = this._cardElement.querySelector(".card__like-button");
 
-    const cardTitle = this._cardElement.querySelector(".card__title");
-    cardTitle.textContent = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = `A photo of ${this._name}`;
+    this._addCardTitle.textContent = this._name;
 
+    this._setEventListeners();
     return this._cardElement;
   }
 }
