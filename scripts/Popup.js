@@ -1,7 +1,7 @@
+//TODO Add comments to the file
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
-    // TODO Consider refactoring this method to act like the _handleOverlay method
     this._handleEscape = this._handleEscape.bind(this);
   }
 
@@ -15,7 +15,6 @@ export default class Popup {
     document.removeEventListener("keydown", this._handleEscape);
   }
 
-  // TODO Consider refactoring this method to act like the _handleOverlay method
   _handleEscape(evt) {
     if (evt.key === "Escape") {
       this.close();
