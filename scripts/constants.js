@@ -27,12 +27,13 @@ export const initialCards = [
 ];
 
 // This object contains the validation settings
+//TODO Return here if there are issues after renaming the classes for clarity and consistency
 export const validationSettings = {
-  inputSelector: ".modal__form-input",
-  submitButtonSelector: ".modal__submit-button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__form-input_type_error",
-  errorClass: "modal__error_visible",
+  formInputSelector: ".modal__form-input",
+  formSubmitButtonSelector: ".modal__submit-button",
+  formSubmitInactiveClass: "modal__button_disabled",
+  formInputErrorClass: "modal__form-input_type_error",
+  formInputErrorActiveClass: "modal__error_visible",
 };
 
 export const selectors = {
