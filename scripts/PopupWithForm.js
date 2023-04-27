@@ -1,3 +1,4 @@
+// TODO Add comments to the file
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
@@ -29,6 +30,7 @@ export default class PopupWithForm extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
+
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
