@@ -51,19 +51,9 @@ export const selectors = {
 export const profileEditForm = document.querySelector("#profile-edit-form");
 export const profileName = document.querySelector("#profile-name");
 export const profileJob = document.querySelector("#profile-job");
-// export const profileEditButton = document.querySelector("#profile-edit-button");
-
-// export const profileNameInput = document.querySelector("#owner-name");
-// export const profileDescriptionInput = document.querySelector("#owner-description");
+export const profileEditButton = document.querySelector("#profile-edit-button");
 
 //* New Card Elements
 
 export const newCardForm = document.querySelector("#new-card-form");
 export const newCardAddButton = document.querySelector("#new-card-add-button");
-
-//* Preview Image Elements
-
-// Close Buttons
-// const closeButtons = document.querySelectorAll(".modal__close-button");
-
-// Define the card selector

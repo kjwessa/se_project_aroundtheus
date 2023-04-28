@@ -8,6 +8,7 @@ import {
   initialCards,
   validationSettings,
   profileEditForm,
+  profileEditButton,
   newCardForm,
   newCardAddButton,
   selectors,
@@ -68,4 +69,21 @@ addCardPopup.setEventListeners();
 newCardAddButton.addEventListener("click", function () {
   addFormValidator.resetValidation();
   addCardPopup.open();
+});
+
+//* Profile Edit Popup
+const editProfilePopup = new PopupWithForm({
+  popupSelector: selectors.profileEditModal,
+  handleFormSubmit: (formData) => {
+    userInfo.setUserInfo(formData);
+  },
+});
+
+editProfilePopup.setEventListeners();
+
+profileEditButton.addEventListener("click", function () {
+  const info = userInfo.getUserInfo();
+  editProfilePopup.setInputValues(info);
+  editFormValidator.resetValidation();
+  editProfilePopup.open();
 });
