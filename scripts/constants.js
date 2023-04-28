@@ -41,6 +41,8 @@ export const selectors = {
   profileJob: "#profile-job",
   profileEditModal: "#profile-edit-modal",
   previewImageModal: "#preview-image-modal",
+  cardTemplate: "#card-template",
+  cardSection: "#card-section",
 };
 
 //* Profile Elements
@@ -61,7 +63,6 @@ export const newCardForm = document.querySelector("#new-card-form");
 //* Preview Image Elements
 
 // Cards List Element
-// export const cardsListElement = document.querySelector(".cards__list");
 
 // TODO determine if the classes below are still needed
 
@@ -69,4 +70,3 @@ export const newCardForm = document.querySelector("#new-card-form");
 // const closeButtons = document.querySelectorAll(".modal__close-button");
 
 // Define the card selector
-// export const cardSelector = "#card-template";

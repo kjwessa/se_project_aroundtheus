@@ -33,37 +33,27 @@ const cardPreviewPopup = new PopupWithImage({
 
 cardPreviewPopup.setEventListeners();
 
-// const createCard = (item) => {
-//   const card = new Card(item, selectors.cardTemplate, ({ name, link }) => {
-//     cardPreviewPopup.open({ name, link });
-//   });
+//* Render the Cards
+const createCard = (item) => {
+  const card = new Card(item, selectors.cardTemplate, ({ name, link }) => {
+    cardPreviewPopup.open({ name, link });
+  });
 
-//   return card.getView();
-// };
+  return card.getView();
+};
 
-// const cardSection = new Section(
-//   {
-//     renderer: (data) => {
-//       cardSection.addItem(createCard(data));
-//     },
-//     items: initialCards,
-//   },
-//   selectors.cardsList
-// );
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      cardSection.addItem(createCard(item));
+    },
+  },
+  selectors.cardSection
+);
 
-// // Create the cards
-// function createCard(cardData) {
-//   const card = new Card(cardData, cardSelector);
-//   return card;
-// }
+cardSection.renderItems();
 
-// // Render the cards on the page
-// function renderCard(cardInstance) {
-//   cardsList.prepend(cardInstance.getView());
-// }
-
-// // TODO Refactor the modal open and close functions to use the new classes
-// // Add New Card Form Handler
 // function handleAddCardSubmit(evt) {
 //   evt.preventDefault();
 //   const newCardTitle = evt.target.title.value;
