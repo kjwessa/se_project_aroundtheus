@@ -43,6 +43,7 @@ export const selectors = {
   previewImageModal: "#preview-image-modal",
   cardTemplate: "#card-template",
   cardSection: "#card-section",
+  newCardModal: "#new-card-modal",
 };
 
 //* Profile Elements
@@ -56,15 +57,11 @@ export const profileJob = document.querySelector("#profile-job");
 // export const profileDescriptionInput = document.querySelector("#owner-description");
 
 //* New Card Elements
-export const newCardModal = document.querySelector("#new-card-modal");
+
 export const newCardForm = document.querySelector("#new-card-form");
-// export const newCardAddButton = document.querySelector("#new-card-add-button");
+export const newCardAddButton = document.querySelector("#new-card-add-button");
 
 //* Preview Image Elements
-
-// Cards List Element
-
-// TODO determine if the classes below are still needed
 
 // Close Buttons
 // const closeButtons = document.querySelectorAll(".modal__close-button");

@@ -9,6 +9,7 @@ import {
   validationSettings,
   profileEditForm,
   newCardForm,
+  newCardAddButton,
   selectors,
 } from "./constants.js";
 
@@ -54,42 +55,17 @@ const cardSection = new Section(
 
 cardSection.renderItems();
 
-// function handleAddCardSubmit(evt) {
-//   evt.preventDefault();
-//   const newCardTitle = evt.target.title.value;
-//   const newCardLink = evt.target.link.value;
-//   const cardInstance = createCard({ name: newCardTitle, link: newCardLink });
-//   renderCard(cardInstance);
-//   closeModal(newCardModal);
-//   evt.target.reset();
-// }
+//* Profile Add Card Popup
+const addCardPopup = new PopupWithForm({
+  popupSelector: selectors.newCardModal,
+  handleFormSubmit: (formData) => {
+    cardSection.addItem(createCard(formData));
+  },
+});
 
-// // TODO Refactor the modal open and close functions to use the new classes
-// function handleAddCardFormOpen(evt) {
-//   newCardForm.reset();
-//   addFormValidator.resetValidation();
-//   openModal(newCardModal);
-// }
+addCardPopup.setEventListeners();
 
-// // Add New Card Form Listeners
-// newCardForm.addEventListener("submit", handleAddCardSubmit);
-
-// newCardAddButton.addEventListener("click", handleAddCardFormOpen);
-
-// // TODO Refactor the modal open and close functions to use the new classes
-// // Add event listeners to all close buttons
-// closeButtons.forEach(function (button) {
-//   // find the closest modal
-//   const modal = button.closest(".modal");
-//   button.addEventListener("click", () => closeModal(modal));
-// });
-
-// // Render the initial cards
-// initialCards.forEach(function (cardData) {
-//   const cardInstance = createCard(cardData);
-//   renderCard(cardInstance);
-// });
-
-//TODO Delete Items Below After Refactoring
-// // Edit Profile Form Listeners
-// profileEditForm.addEventListener("submit", handleProfileFormSubmit);
+newCardAddButton.addEventListener("click", function () {
+  addFormValidator.resetValidation();
+  addCardPopup.open();
+});

@@ -7,6 +7,7 @@ class FormValidator {
     this._inactiveButtonClass = validationSettings.formSubmitInactiveClass;
     this._inputErrorClass = validationSettings.formInputErrorClass;
     this._errorClass = validationSettings.formInputErrorActiveClass;
+
     this._form = formElement;
   }
 
@@ -63,7 +64,7 @@ class FormValidator {
   }
 
   _hasInvalidInput() {
-    return !this._inputList.every((inputElement) => inputElement.validity.valid);
+    return !this._inputElements.every((inputElement) => inputElement.validity.valid);
   }
 
   enableValidation() {
@@ -74,7 +75,7 @@ class FormValidator {
   }
 
   resetValidation() {
-    this._inputList.forEach((inputElement) => {
+    this._inputElements.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
     this._toggleButtonState();
