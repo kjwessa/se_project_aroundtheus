@@ -26,7 +26,7 @@ const userInfo = new UserInfo({
   jobSelector: selectors.profileJob,
 });
 
-//* Add Cards on the Page
+//* Preview Image Popup
 const cardPreviewPopup = new PopupWithImage({
   popupSelector: selectors.previewImageModal,
 });
@@ -50,14 +50,6 @@ cardPreviewPopup.setEventListeners();
 //   },
 //   selectors.cardsList
 // );
-
-// const cardPreviewPopup = new PopupWithImage({
-//   popupSelector: "#preview-image-modal",
-// });
-
-// //TODO Find the missing selector functionality
-
-// // TODO Refactor the modal open and close functions to use the new classes
 
 // // Create the cards
 // function createCard(cardData) {
