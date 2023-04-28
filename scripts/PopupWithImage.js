@@ -5,7 +5,7 @@ export default class PopupWithImage extends Popup {
   // is the constructor method for the PopupWithImage class.
   constructor(popupSelector) {
     //  calls the parent class Popup's constructor, passing in popupSelector.
-    super({ popupSelector });
+    super(popupSelector);
     // gets a reference to the .modal__preview-image element within the popup.
     this._previewModalImage = this._popupElement.querySelector(".modal__preview-image");
     // gets a reference to the .modal__preview-caption element within the popup.

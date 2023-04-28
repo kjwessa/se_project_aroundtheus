@@ -37,9 +37,10 @@ export const validationSettings = {
 };
 
 export const selectors = {
-  profileName: "#profile-name", //?
-  profileJob: "#profile-job", //?
-  profileEditModal: "#profile-edit-modal", //?
+  profileName: "#profile-name",
+  profileJob: "#profile-job",
+  profileEditModal: "#profile-edit-modal",
+  previewImageModal: "#preview-image-modal",
 };
 
 //* Profile Elements
@@ -54,7 +55,10 @@ export const profileJob = document.querySelector("#profile-job");
 
 //* New Card Elements
 export const newCardModal = document.querySelector("#new-card-modal");
+export const newCardForm = document.querySelector("#new-card-form");
 // export const newCardAddButton = document.querySelector("#new-card-add-button");
+
+//* Preview Image Elements
 
 // Cards List Element
 // export const cardsListElement = document.querySelector(".cards__list");
@@ -63,10 +67,6 @@ export const newCardModal = document.querySelector("#new-card-modal");
 
 // Close Buttons
 // const closeButtons = document.querySelectorAll(".modal__close-button");
-
-// const newCardForm = document.querySelector("#new-card-form");
-// Preview Image Elements
-// const previewImageModal = document.querySelector("#preview-image-modal");
 
 // Define the card selector
 // export const cardSelector = "#card-template";
