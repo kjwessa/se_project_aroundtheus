@@ -1,5 +1,3 @@
-//TODO Add Comments to this file
-
 class FormValidator {
   constructor(validationSettings, formElement) {
     this._inputSelector = validationSettings.formInputSelector;
@@ -37,16 +35,6 @@ class FormValidator {
     inputElement.classList.remove(this._errorClass);
   }
 
-  _disableButton() {
-    this._submitButton.classList.add(this._inactiveButtonClass);
-    this._submitButton.disabled = true;
-  }
-
-  _enableButton() {
-    this._submitButton.classList.remove(this._inactiveButtonClass);
-    this._submitButton.disabled = false;
-  }
-
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._disableButton();
@@ -55,16 +43,26 @@ class FormValidator {
     }
   }
 
+  _enableButton() {
+    this._submitButton.classList.remove(this._inactiveButtonClass);
+    this._submitButton.disabled = false;
+  }
+
+  _disableButton() {
+    this._submitButton.classList.add(this._inactiveButtonClass);
+    this._submitButton.disabled = true;
+  }
+
+  _hasInvalidInput() {
+    return !this._inputElements.every((inputElement) => inputElement.validity.valid);
+  }
+
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement);
     } else {
       this._hideInputError(inputElement);
     }
-  }
-
-  _hasInvalidInput() {
-    return !this._inputElements.every((inputElement) => inputElement.validity.valid);
   }
 
   enableValidation() {

@@ -31,7 +31,7 @@ export const initialCards = [
 export const validationSettings = {
   formInputSelector: ".modal__form-input",
   formSubmitButtonSelector: ".modal__submit-button",
-  formSubmitInactiveClass: "modal__button_disabled",
+  formSubmitInactiveClass: "modal__submit-button_disabled",
   formInputErrorClass: "modal__form-input_type_error",
   formInputErrorActiveClass: "modal__error_visible",
 };
