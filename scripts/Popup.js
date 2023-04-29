@@ -24,7 +24,7 @@ export default class Popup {
   _handleOverlay = (evt) => {
     if (
       evt.target.classList.contains("modal_opened") ||
-      evt.target.classList.contains("modal__close")
+      evt.target.classList.contains("modal__close-button")
     ) {
       this.close();
     }
