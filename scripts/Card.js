@@ -4,6 +4,7 @@ class Card {
   constructor(cardData, cardSelector, handleImageClick) {
     this._name = cardData.name;
     this._link = cardData.link;
+
     this._cardSelector = cardSelector;
     this._cardData = cardData;
     this._handleImageClick = handleImageClick;
@@ -50,6 +51,7 @@ class Card {
     this._addCardTitle.textContent = this._name;
 
     this._setEventListeners();
+
     return this._cardElement;
   }
 }

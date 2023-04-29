@@ -36,8 +36,8 @@ const cardPreviewPopup = new PopupWithImage({
 cardPreviewPopup.setEventListeners();
 
 //* Render the Cards
-const createCard = (item) => {
-  const card = new Card(item, selectors.cardTemplate, ({ name, link }) => {
+const createCard = ({ name, link }) => {
+  const card = new Card({ name, link }, selectors.cardTemplate, ({ name, link }) => {
     cardPreviewPopup.open({ name, link });
   });
 

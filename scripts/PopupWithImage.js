@@ -13,7 +13,7 @@ export default class PopupWithImage extends Popup {
   }
 
   //  defines an open method for the PopupWithImage class.
-  open(name, link) {
+  open({ name, link }) {
     // sets the text content of the .modal__preview-caption element to the name parameter.
     this._previewModalCaption.textContent = name;
     // sets the src attribute of the .modal__preview-image element to the link parameter.
