@@ -11,19 +11,21 @@
       content="This is the third project of the Software Engineer program at Practicum by Yandex. It was created using HTML, CSS and Vanilla JS, based on the design provided in Figma." />
     <meta name="author" content="Kevin Wessa" />
     <meta name="keywords" content="html css" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>Around the US - App</title>
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
-        <img src="./images/logo.svg" alt="Around the US logo" class="header__logo" />
+        <img
+          src="<%=require('./images/logo.svg')%>"
+          alt="Around the US logo"
+          class="header__logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./images/jacques-cousteau.jpg"
+            src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="Avatar Jacques Cousteau"
             class="profile__avatar" />
           <div class="profile__info">
