@@ -26,8 +26,6 @@ export const initialCards = [
   },
 ];
 
-// This object contains the validation settings
-//TODO Return here if there are issues after renaming the classes for clarity and consistency
 export const validationSettings = {
   formInputSelector: ".modal__form-input",
   formSubmitButtonSelector: ".modal__submit-button",
@@ -47,13 +45,11 @@ export const selectors = {
 };
 
 //* Profile Elements
-
 export const profileEditForm = document.querySelector("#profile-edit-form");
 export const profileName = document.querySelector("#profile-name");
 export const profileJob = document.querySelector("#profile-job");
 export const profileEditButton = document.querySelector("#profile-edit-button");
 
 //* New Card Elements
-
 export const newCardForm = document.querySelector("#new-card-form");
 export const newCardAddButton = document.querySelector("#new-card-add-button");

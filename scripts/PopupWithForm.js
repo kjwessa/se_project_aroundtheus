@@ -1,4 +1,3 @@
-// TODO Add comments to the file
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {

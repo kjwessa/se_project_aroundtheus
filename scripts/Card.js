@@ -1,5 +1,3 @@
-//TODO Return to this file and add comments
-
 class Card {
   constructor(cardData, cardSelector, handleImageClick) {
     this._name = cardData.name;
