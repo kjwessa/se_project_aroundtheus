@@ -13,7 +13,7 @@ import {
   newCardForm,
   newCardAddButton,
   selectors,
-} from "../components/constants.js";
+} from "../utils/constants.js";
 
 //* Form Validators
 const editFormValidator = new FormValidator(validationSettings, profileEditForm);
