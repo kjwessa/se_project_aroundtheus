@@ -18,7 +18,7 @@ module.exports = {
   stats: "errors-only",
   mode: "development",
   devServer: {
-    static: path.resolve(__dirname, "dist"),
+    static: path.resolve(__dirname, "./dist"),
     compress: true,
     port: 8080,
     open: true,
