@@ -20,7 +20,7 @@ export default class Popup {
     }
   }
 
-  _handleOverlay = (evt) => {
+  _handlePopupClose = (evt) => {
     if (
       evt.target.classList.contains("modal_opened") ||
       evt.target.classList.contains("modal__close-button")
@@ -30,6 +30,6 @@ export default class Popup {
   };
 
   setEventListeners() {
-    this._popupElement.addEventListener("mousedown", (evt) => this._handleOverlay(evt));
+    this._popupElement.addEventListener("mousedown", (evt) => this._handlePopupClose(evt));
   }
 }
