@@ -30,13 +30,17 @@ const editFormValidator = new FormValidator(validationSettings, profileEditForm)
 
 const addFormValidator = new FormValidator(validationSettings, newCardForm);
 
+//TODO Add in the avatar form validator when the functionality is built
+
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
+//TODO Enable the avatar form validator when the functionality is built
 
 //* Classes
 const userInfo = new UserInfo({
   nameSelector: selectors.profileName,
   jobSelector: selectors.profileJob,
+  //TODO Add in the avatar selector when the functionality is built
 });
 
 //* Preview Image Popup
