@@ -5,6 +5,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
 import {
   initialCards,
   validationSettings,
@@ -14,6 +15,15 @@ import {
   newCardAddButton,
   selectors,
 } from "../utils/constants.js";
+
+//* API
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-12",
+  headers: {
+    authorization: "ae2a222f-f992-4644-9116-ee81d5f8ba63",
+    "Content-Type": "application/json",
+  },
+});
 
 //* Form Validators
 const editFormValidator = new FormValidator(validationSettings, profileEditForm);
