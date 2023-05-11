@@ -147,9 +147,6 @@ TODO Return to this area if renaming the modal button creates issues
   object-fit: cover;
 }
 
-/* 
-TODO Return to this area if renaming the modal caption creates issues
-*/
 .modal__preview-caption {
   margin: 10px 0 0;
   font-size: 12px;

@@ -39,6 +39,33 @@
   margin-right: 30px;
 }
 
+.profile__avatar-edit-container {
+  height: 120px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-right: 30px;
+  background-color: rgba(0, 0, 0, 0.825);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.profile__avatar-edit-container:hover {
+  opacity: 0.8;
+}
+.profile__avatar-edit-button {
+  object-fit: cover;
+  width: 26px;
+  height: 26px;
+  background: transparent url(../images/edit-avatar.svg) center no-repeat;
+  margin-bottom: 0;
+  border: none;
+  border-color: transparent;
+  cursor: pointer;
+}
+
 .profile__job {
   grid-area: subtitle;
   margin: 0;

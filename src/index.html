@@ -27,12 +27,19 @@
             src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="Avatar Jacques Cosqteau"
             class="profile__avatar" />
+          <div class="profile__avatar-edit-container">
+            <button
+              class="profile__avatar-edit-button"
+              type="button"
+              aria-label="edit avatar"
+              id="avatar-edit-button"></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__name" id="profile-name">Jacques Cousteau</h1>
             <button
               class="profile__edit-button"
               type="button"
-              aria-label="edit"
+              aria-label="edit profile"
               id="profile-edit-button"></button>
             <p class="profile__job" id="profile-job">Explorer</p>
           </div>
@@ -137,6 +144,44 @@
           <p class="modal__preview-caption" id="preview-caption"></p>
         </div>
       </div>
+      <!-- Confirm Delete Modal -->
+      <div class="modal" id="confirm-delete-modal">
+        <form class="modal__form" id="confirm-delete-form">
+          <h3 class="modal__title">Are you sure?</h3>
+          <fieldset class="modal__form-fieldset">
+            <button type="submit" class="modal__submit-button" aria-label="submit">Yes</button>
+          </fieldset>
+          <button class="modal__close-button" type="button" aria-label="close modal"></button>
+        </form>
+      </div>
+      <!-- Change Avatar Modal -->
+      <div class="modal" id="new-card-modal">
+        <form class="modal__form" id="new-card-form">
+          <h3 class="modal__title">Change profile picture</h3>
+          <fieldset class="modal__form-fieldset">
+            <label class="modal__label">
+              <input
+                type="url"
+                name="avatar"
+                id="avatar-link"
+                placeholder="Image Link"
+                class="modal__form-input modal__form-input_type_title"
+                required />
+              <span class="modal__error" id="card-title-error"></span>
+            </label>
+          </fieldset>
+          <fieldset class="modal__form-fieldset">
+            <button
+              type="submit"
+              class="modal__submit-button modal__submit-button_disabled"
+              aria-label="submit">
+              Save
+            </button>
+          </fieldset>
+          <button class="modal__close-button" type="button" aria-label="close modal"></button>
+        </form>
+      </div>
+
       <!-- Card Template -->
       <template id="card-template">
         <li class="card">
