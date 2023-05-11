@@ -49,6 +49,7 @@ export default class Api {
     }).then(this._handleResponse);
   }
 
+  //* Add a new card to the server
   //TODO Add in the comments for the function below
   addNewCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
@@ -58,6 +59,7 @@ export default class Api {
     }).then(this._handleResponse);
   }
 
+  //* Delete a card from the server
   //TODO Add in the comments for the function below
   deleteUserCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
@@ -66,6 +68,7 @@ export default class Api {
     }).then(this._handleResponse);
   }
 
+  //* Add a like to a card
   //TODO Add in the comments for the function below
   addCardLikes(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
@@ -74,6 +77,7 @@ export default class Api {
     }).then(this._handleResponse);
   }
 
+  //* Remove a like from a card
   //TODO Add in the comments for the function below
   removeCardLikes(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
@@ -82,6 +86,13 @@ export default class Api {
     }).then(this._handleResponse);
   }
 
+  //* Update the user profile avatar
   //TODO Build the function below and add in the comments
-  updateProfileAvatar() {}
+  updateProfileAvatar(avatar) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({ avatar }),
+    }).then(this._handleResponse);
+  }
 }
