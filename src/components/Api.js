@@ -95,4 +95,6 @@ export default class Api {
       body: JSON.stringify({ avatar }),
     }).then(this._handleResponse);
   }
+
+  //TODO Add in update likes functionality
 }

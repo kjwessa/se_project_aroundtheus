@@ -40,6 +40,7 @@ export const selectors = {
   profileAvatar: "#profile-avatar",
   profileEditModal: "#profile-edit-modal",
   previewImageModal: "#preview-image-modal",
+  confirmDeleteModal: "#confirm-delete-modal",
   cardTemplate: "#card-template",
   cardSection: "#card-section",
   newCardModal: "#new-card-modal",
@@ -58,3 +59,4 @@ export const newCardAddButton = document.querySelector("#new-card-add-button");
 
 //* Avatar Elements
 export const avatarEditForm = document.querySelector("#avatar-edit-form");
+export const avatarEditButton = document.querySelector("#avatar-edit-button");

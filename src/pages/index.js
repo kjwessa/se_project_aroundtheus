@@ -1,18 +1,21 @@
 import "../pages/index.css";
 import {
-  initialCards,
+  //TODO Remove the initialCards after testing
+  // initialCards,
   validationSettings,
   profileEditForm,
   profileEditButton,
   newCardForm,
   newCardAddButton,
-  selectors,
   avatarEditForm,
+  confirmDeleteModal,
+  selectors,
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
@@ -27,13 +30,19 @@ const api = new Api({
 });
 
 //* Form Validators
-const editFormValidator = new FormValidator(validationSettings, profileEditForm);
 const addFormValidator = new FormValidator(validationSettings, newCardForm);
+const editFormValidator = new FormValidator(validationSettings, profileEditForm);
 const avatarFormValidator = new FormValidator(validationSettings, avatarEditForm);
 
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
 avatarFormValidator.enableValidation();
+
+//* Delete Card Popup
+const deleteCardPopup = new PopupWithConfirmation({
+  popupSelector: selectors.confirmDeleteModal,
+});
+deleteCardPopup.setEventListeners();
 
 //* Preview Image Popup
 const cardPreviewPopup = new PopupWithImage({
@@ -60,17 +69,52 @@ function createCard(cardData) {
   const card = new Card(
     cardData,
     userId,
-    selectors.cardTemplate,
+    "#card-template",
     (cardName, cardLink) => {
       cardPreviewPopup.open(cardName, cardLink);
     },
 
     (cardId) => {
-      //TODO create the deleteCardPopup functionality
-      // deleteCardPopup.open(cardId);
-      //
+      deleteCardPopup.open();
+      deleteCardPopup.setSubmitAction(() => {
+        deleteCardPopup.renderLoading(true);
+        api
+          .deleteUserCard(cardId)
+          .then(() => {
+            card.deleteCard();
+            deleteCardPopup.close();
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+          .finally(() => {
+            deleteCardPopup.renderLoading(false);
+          });
+      });
+    },
+    (cardId) => {
+      if (card.isLiked()) {
+        api
+          .removeCardLikes(cardId)
+          .then((res) => {
+            card.updateLikes(res.likes);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        api
+          .addCardLikes(cardId)
+          .then((res) => {
+            card.updateLikes(res.likes);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
     }
   );
+  return card;
 }
 
 api
@@ -150,3 +194,7 @@ newCardAddButton.addEventListener("click", function () {
   addFormValidator.resetValidation();
   addCardPopup.open();
 });
+
+//* Profile Edit Avatar Popup
+
+//TODO Add the avatar edit popup and set the event listeners
