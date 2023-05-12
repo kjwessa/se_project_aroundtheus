@@ -37,11 +37,13 @@ export const validationSettings = {
 export const selectors = {
   profileName: "#profile-name",
   profileJob: "#profile-job",
+  profileAvatar: "#profile-avatar",
   profileEditModal: "#profile-edit-modal",
   previewImageModal: "#preview-image-modal",
   cardTemplate: "#card-template",
   cardSection: "#card-section",
   newCardModal: "#new-card-modal",
+  avatarEditModal: "#avatar-edit-modal",
 };
 
 //* Profile Elements
@@ -53,3 +55,6 @@ export const profileEditButton = document.querySelector("#profile-edit-button");
 //* New Card Elements
 export const newCardForm = document.querySelector("#new-card-form");
 export const newCardAddButton = document.querySelector("#new-card-add-button");
+
+//* Avatar Elements
+export const avatarEditForm = document.querySelector("#avatar-edit-form");

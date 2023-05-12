@@ -1,11 +1,4 @@
 import "../pages/index.css";
-import FormValidator from "../components/FormValidator.js";
-import Card from "../components/Card.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import Section from "../components/Section.js";
-import UserInfo from "../components/UserInfo.js";
-import Api from "../components/Api.js";
 import {
   initialCards,
   validationSettings,
@@ -14,7 +7,15 @@ import {
   newCardForm,
   newCardAddButton,
   selectors,
+  avatarEditForm,
 } from "../utils/constants.js";
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
 
 //* API
 const api = new Api({
@@ -27,21 +28,12 @@ const api = new Api({
 
 //* Form Validators
 const editFormValidator = new FormValidator(validationSettings, profileEditForm);
-
 const addFormValidator = new FormValidator(validationSettings, newCardForm);
-
-//TODO Add in the avatar form validator when the functionality is built
+const avatarFormValidator = new FormValidator(validationSettings, avatarEditForm);
 
 addFormValidator.enableValidation();
 editFormValidator.enableValidation();
-//TODO Enable the avatar form validator when the functionality is built
-
-//* Classes
-const userInfo = new UserInfo({
-  nameSelector: selectors.profileName,
-  jobSelector: selectors.profileJob,
-  //TODO Add in the avatar selector when the functionality is built
-});
+avatarFormValidator.enableValidation();
 
 //* Preview Image Popup
 const cardPreviewPopup = new PopupWithImage({
@@ -50,42 +42,82 @@ const cardPreviewPopup = new PopupWithImage({
 
 cardPreviewPopup.setEventListeners();
 
-//* Render the Cards
-const createCard = (item) => {
-  const { name, link } = item;
-  const card = new Card({ name, link }, selectors.cardTemplate, ({ name, link }) => {
-    cardPreviewPopup.open({ name, link });
+//* Classes
+const userInfo = new UserInfo({
+  nameSelector: selectors.profileName,
+  jobSelector: selectors.profileJob,
+  avatarSelector: selectors.profileAvatar,
+});
+
+//* API Classes
+let cardSection;
+let userId;
+
+//* API Calls
+//TODO Refactor all the API calls if needed
+
+function createCard(cardData) {
+  const card = new Card(
+    cardData,
+    userId,
+    selectors.cardTemplate,
+    (cardName, cardLink) => {
+      cardPreviewPopup.open(cardName, cardLink);
+    },
+
+    (cardId) => {
+      //TODO create the deleteCardPopup functionality
+      // deleteCardPopup.open(cardId);
+      //
+    }
+  );
+}
+
+api
+  .getAPIInfo()
+  .then(([userData, userCards]) => {
+    console.log(userData);
+    console.log(userCards);
+    userId = userData._id;
+    userInfo.setUserInfo(userData);
+    userInfo.setUserAvatar(userData);
+    cardSection = new Section(
+      {
+        items: userCards,
+        renderer: (cardData) => {
+          const newCard = createCard(cardData);
+          cardSection.addItem(newCard.getView());
+        },
+      },
+      selectors.cardSection
+    );
+    cardSection.renderItems();
+  })
+  .catch((err) => {
+    console.log(err);
   });
 
-  return card.getView();
-};
+//* Render the Cards
+// const createCard = (item) => {
+//   const { name, link } = item;
+//   const card = new Card({ name, link }, selectors.cardTemplate, ({ name, link }) => {
+//     cardPreviewPopup.open({ name, link });
+//   });
 
-const cardSection = new Section(
-  {
-    items: initialCards,
-    renderer: (item) => {
-      cardSection.addItem(createCard(item));
-    },
-  },
-  selectors.cardSection
-);
+//   return card.getView();
+// };
 
-cardSection.renderItems();
+// const cardSection = new Section(
+//   {
+//     items: initialCards,
+//     renderer: (item) => {
+//       cardSection.addItem(createCard(item));
+//     },
+//   },
+//   selectors.cardSection
+// );
 
-//* Profile Add Card Popup
-const addCardPopup = new PopupWithForm({
-  popupSelector: selectors.newCardModal,
-  handleFormSubmit: (formData) => {
-    cardSection.addItem(createCard(formData));
-  },
-});
-
-addCardPopup.setEventListeners();
-
-newCardAddButton.addEventListener("click", function () {
-  addFormValidator.resetValidation();
-  addCardPopup.open();
-});
+// cardSection.renderItems();
 
 //* Profile Edit Popup
 const editProfilePopup = new PopupWithForm({
@@ -102,4 +134,19 @@ profileEditButton.addEventListener("click", function () {
   editProfilePopup.setInputValues(info);
   editFormValidator.resetValidation();
   editProfilePopup.open();
+});
+
+//* Profile Add Card Popup
+const addCardPopup = new PopupWithForm({
+  popupSelector: selectors.newCardModal,
+  handleFormSubmit: (formData) => {
+    cardSection.addItem(createCard(formData));
+  },
+});
+
+addCardPopup.setEventListeners();
+
+newCardAddButton.addEventListener("click", function () {
+  addFormValidator.resetValidation();
+  addCardPopup.open();
 });

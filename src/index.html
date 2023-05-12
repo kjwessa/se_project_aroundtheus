@@ -26,7 +26,8 @@
           <img
             src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="Avatar Jacques Cosqteau"
-            class="profile__avatar" />
+            class="profile__avatar"
+            id="profile-avatar" />
           <div class="profile__avatar-edit-container">
             <button
               class="profile__avatar-edit-button"
@@ -155,8 +156,8 @@
         </form>
       </div>
       <!-- Change Avatar Modal -->
-      <div class="modal" id="new-card-modal">
-        <form class="modal__form" id="new-card-form">
+      <div class="modal" id="avatar-edit-modal">
+        <form class="modal__form" id="avatar-edit-form">
           <h3 class="modal__title">Change profile picture</h3>
           <fieldset class="modal__form-fieldset">
             <label class="modal__label">
@@ -189,7 +190,10 @@
           <button class="card__delete-button" type="button" aria-label="delete the post"></button>
           <div class="card__description">
             <h2 class="card__title"></h2>
-            <button class="card__like-button" type="button" aria-label="like the post"></button>
+            <div class="card__like-wrap">
+              <button class="card__like-button" type="button" aria-label="like the post"></button>
+              <p class="card__like-counter">1</p>
+            </div>
           </div>
         </li>
       </template>

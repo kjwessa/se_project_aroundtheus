@@ -56,6 +56,20 @@
   cursor: pointer;
 }
 
+.card__like-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card__like-counter {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 13px;
+}
+
 .card__delete-button {
   background: transparent url(../images/trash-icon.svg) center no-repeat;
   border: 0;
