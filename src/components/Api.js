@@ -5,7 +5,6 @@ export default class Api {
   }
 
   //* Handle the response from the server
-  //TODO Add in the comments for the function below
   _handleResponse(res) {
     if (res.ok) {
       return res.json();
@@ -13,7 +12,6 @@ export default class Api {
     return Promise.reject(`Error: ${res.status}`);
   }
 
-  //TODO Add in the comments for the function below
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
@@ -22,7 +20,6 @@ export default class Api {
   }
 
   //* Get the initial cards from the server
-  //TODO Add in the comments for the function below
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
@@ -31,14 +28,13 @@ export default class Api {
   }
 
   //* Promise All to get the initial user info and cards
-  //TODO Add in the comments for the function below
   getAPIInfo() {
     return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
 
   //* Update the user profile info
-  //TODO Add in the comments for the function below
-  updateProfileInfo(userData) {
+  //TODO This is returning a 400 error
+  updateUserInfo(userData) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
@@ -50,7 +46,6 @@ export default class Api {
   }
 
   //* Add a new card to the server
-  //TODO Add in the comments for the function below
   addNewCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
@@ -60,7 +55,6 @@ export default class Api {
   }
 
   //* Delete a card from the server
-  //TODO Add in the comments for the function below
   deleteUserCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
@@ -69,7 +63,6 @@ export default class Api {
   }
 
   //* Add a like to a card
-  //TODO Add in the comments for the function below
   addCardLikes(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "PUT",
@@ -78,7 +71,6 @@ export default class Api {
   }
 
   //* Remove a like from a card
-  //TODO Add in the comments for the function below
   removeCardLikes(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "DELETE",
@@ -87,7 +79,6 @@ export default class Api {
   }
 
   //* Update the user profile avatar
-  //TODO Build the function below and add in the comments
   updateProfileAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",

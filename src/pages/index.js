@@ -1,7 +1,5 @@
 import "../pages/index.css";
 import {
-  //TODO Remove the initialCards after testing
-  // initialCards,
   validationSettings,
   profileEditForm,
   profileEditButton,
@@ -11,6 +9,7 @@ import {
   confirmDeleteModal,
   selectors,
 } from "../utils/constants.js";
+
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
@@ -48,7 +47,6 @@ deleteCardPopup.setEventListeners();
 const cardPreviewPopup = new PopupWithImage({
   popupSelector: selectors.previewImageModal,
 });
-
 cardPreviewPopup.setEventListeners();
 
 //* Classes
@@ -62,9 +60,29 @@ const userInfo = new UserInfo({
 let cardSection;
 let userId;
 
-//* API Calls
-//TODO Refactor all the API calls if needed
+//* Profile Edit Popup
+const editProfilePopup = new PopupWithForm({
+  popupSelector: selectors.profileEditModal,
+  handleFormSubmit: (formData) => {
+    editProfilePopup.renderLoading(true);
+    api
+      .updateUserInfo(formData)
+      .then((res) => {
+        userInfo.setUserInfo(res);
+        editProfilePopup.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        editProfilePopup.renderLoading(false);
+      });
+  },
+});
 
+editProfilePopup.setEventListeners();
+
+//* API Calls
 function createCard(cardData) {
   const card = new Card(
     cardData,
@@ -141,37 +159,28 @@ api
     console.log(err);
   });
 
-//* Render the Cards
-// const createCard = (item) => {
-//   const { name, link } = item;
-//   const card = new Card({ name, link }, selectors.cardTemplate, ({ name, link }) => {
-//     cardPreviewPopup.open({ name, link });
-//   });
-
-//   return card.getView();
-// };
-
-// const cardSection = new Section(
-//   {
-//     items: initialCards,
-//     renderer: (item) => {
-//       cardSection.addItem(createCard(item));
-//     },
-//   },
-//   selectors.cardSection
-// );
-
-// cardSection.renderItems();
-
-//* Profile Edit Popup
-const editProfilePopup = new PopupWithForm({
-  popupSelector: selectors.profileEditModal,
+//* Profile Add Card Popup
+const addCardPopup = new PopupWithForm({
+  popupSelector: selectors.newCardModal,
   handleFormSubmit: (formData) => {
-    userInfo.setUserInfo(formData);
+    addCardPopup.renderLoading(true);
+    api
+      .addNewCard(formData)
+      .then((res) => {
+        const newCard = createCard(res);
+        addCardPopup.close();
+        cardSection.addItem(newCard.getView());
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        addCardPopup.renderLoading(false);
+      });
   },
 });
 
-editProfilePopup.setEventListeners();
+addCardPopup.setEventListeners();
 
 profileEditButton.addEventListener("click", function () {
   const info = userInfo.getUserInfo();
@@ -179,16 +188,6 @@ profileEditButton.addEventListener("click", function () {
   editFormValidator.resetValidation();
   editProfilePopup.open();
 });
-
-//* Profile Add Card Popup
-const addCardPopup = new PopupWithForm({
-  popupSelector: selectors.newCardModal,
-  handleFormSubmit: (formData) => {
-    cardSection.addItem(createCard(formData));
-  },
-});
-
-addCardPopup.setEventListeners();
 
 newCardAddButton.addEventListener("click", function () {
   addFormValidator.resetValidation();

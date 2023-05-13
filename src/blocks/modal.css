@@ -89,10 +89,6 @@
   border-bottom: solid 1px #ff0000;
 }
 
-/* 
-TODO Return to this area if renaming the modal button creates issues
-
-*/
 .modal__submit-button {
   margin: 48px 0 0;
   background-color: black;
