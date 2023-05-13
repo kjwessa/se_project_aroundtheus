@@ -6,10 +6,14 @@ export default class Api {
 
   //* Handle the response from the server
   _handleResponse(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Error: ${res.status}`);
+    console.log("Handle Response:", res);
+    return res.json().then((data) => {
+      console.log("Handle Response Body:", data); // Add this line
+      if (res.ok) {
+        return data;
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
   }
 
   getUserInfo() {
@@ -35,6 +39,8 @@ export default class Api {
   //* Update the user profile info
   //TODO This is returning a 400 error
   updateUserInfo(userData) {
+    console.log("User Data:", userData); // Add this line
+    //TODO Delete the console.log above
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
@@ -86,6 +92,4 @@ export default class Api {
       body: JSON.stringify({ avatar }),
     }).then(this._handleResponse);
   }
-
-  //TODO Add in update likes functionality
 }

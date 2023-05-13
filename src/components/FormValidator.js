@@ -5,13 +5,17 @@ class FormValidator {
     this._inactiveButtonClass = validationSettings.formSubmitInactiveClass;
     this._inputErrorClass = validationSettings.formInputErrorClass;
     this._errorClass = validationSettings.formInputErrorActiveClass;
+
     this._form = formElement;
   }
 
   _setEventListeners() {
     this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
-    this._disableButton();
+    //TODO figure out if disable button is needed here
+    // this._disableButton();
+    //TODO Figure out if toggling button is better here
+    this._toggleButtonState();
     this._inputElements.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
@@ -22,16 +26,28 @@ class FormValidator {
 
   _showInputError(inputElement) {
     const errorMessageElement = this._form.querySelector(`#${inputElement.id}-error`);
+    //TODO remove these console.logs when everything is working
+    console.log(inputElement);
+    console.log(inputElement.id);
+    console.log(this._form);
+
     inputElement.classList.add(this._inputErrorClass);
     errorMessageElement.textContent = inputElement.validationMessage;
     inputElement.classList.add(this._errorClass);
   }
 
   _hideInputError(inputElement) {
+    console.log("Hiding input error for input:", inputElement);
+    //TODO The issue still lies here with the avatar-edit-error
     const errorMessageElement = this._form.querySelector(`#${inputElement.id}-error`);
-    inputElement.classList.remove(this._inputErrorClass);
-    errorMessageElement.textContent = "";
-    inputElement.classList.remove(this._errorClass);
+    console.log("Error message element found:", errorMessageElement);
+    if (errorMessageElement) {
+      inputElement.classList.remove(this._inputErrorClass);
+      errorMessageElement.textContent = "";
+      errorMessageElement.classList.remove(this._errorClass);
+    } else {
+      console.error(`Error message element not found for input: ${inputElement.id}`);
+    }
   }
 
   _toggleButtonState() {
@@ -47,6 +63,7 @@ class FormValidator {
     this._submitButton.disabled = false;
   }
 
+  //TODO Figure out if disabling button is needed here
   _disableButton() {
     this._submitButton.classList.add(this._inactiveButtonClass);
     this._submitButton.disabled = true;

@@ -1,21 +1,22 @@
 import "../pages/index.css";
 import {
+  selectors,
   validationSettings,
-  profileEditForm,
   profileEditButton,
-  newCardForm,
   newCardAddButton,
+  avatarEditButton,
+  //TODO Unsure if the ones below are needed
+  profileEditForm,
+  newCardForm,
   avatarEditForm,
   confirmDeleteModal,
-  selectors,
 } from "../utils/constants.js";
-
-import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
+import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 
@@ -37,16 +38,14 @@ addFormValidator.enableValidation();
 editFormValidator.enableValidation();
 avatarFormValidator.enableValidation();
 
-//* Delete Card Popup
-const deleteCardPopup = new PopupWithConfirmation({
-  popupSelector: selectors.confirmDeleteModal,
-});
-deleteCardPopup.setEventListeners();
-
 //* Preview Image Popup
-const cardPreviewPopup = new PopupWithImage({
-  popupSelector: selectors.previewImageModal,
-});
+//TODO Unsure if this is needed
+function handleImageClick(cardName, cardLink) {
+  cardPreviewPopup.open(cardName, cardLink);
+}
+//TODO Return to this if it continues to be an issue
+//TODO Previously was const cardPreviewPopup = new PopupWithImage(selectors.previewImageModal, handleImageClick);
+const cardPreviewPopup = new PopupWithImage(selectors.previewImageModal, handleImageClick);
 cardPreviewPopup.setEventListeners();
 
 //* Classes
@@ -56,6 +55,12 @@ const userInfo = new UserInfo({
   avatarSelector: selectors.profileAvatar,
 });
 
+//* Delete Card Popup
+const deleteCardPopup = new PopupWithConfirmation({
+  popupSelector: selectors.confirmDeleteModal,
+});
+deleteCardPopup.setEventListeners();
+
 //* API Classes
 let cardSection;
 let userId;
@@ -63,12 +68,14 @@ let userId;
 //* Profile Edit Popup
 const editProfilePopup = new PopupWithForm({
   popupSelector: selectors.profileEditModal,
-  handleFormSubmit: (formData) => {
+  handleFormSubmit: (values) => {
+    console.log("Form Values:", values);
     editProfilePopup.renderLoading(true);
     api
-      .updateUserInfo(formData)
-      .then((res) => {
-        userInfo.setUserInfo(res);
+      .updateUserInfo(values)
+      .then((data) => {
+        console.log(data);
+        userInfo.setUserInfo(data);
         editProfilePopup.close();
       })
       .catch((err) => {
@@ -82,12 +89,12 @@ const editProfilePopup = new PopupWithForm({
 
 editProfilePopup.setEventListeners();
 
-//* API Calls
+//* Create Cards
 function createCard(cardData) {
   const card = new Card(
     cardData,
     userId,
-    "#card-template",
+    selectors.cardTemplate,
     (cardName, cardLink) => {
       cardPreviewPopup.open(cardName, cardLink);
     },
@@ -110,6 +117,7 @@ function createCard(cardData) {
           });
       });
     },
+
     (cardId) => {
       if (card.isLiked()) {
         api
@@ -132,15 +140,19 @@ function createCard(cardData) {
       }
     }
   );
+
   return card;
 }
 
+//* Get user cards
 api
   .getAPIInfo()
   .then(([userData, userCards]) => {
-    console.log(userData);
-    console.log(userCards);
+    //TODO remove the console logs
+    // console.log(userData);
+    // console.log(userCards);
     userId = userData._id;
+    console.log(userId);
     userInfo.setUserInfo(userData);
     userInfo.setUserAvatar(userData);
     cardSection = new Section(
@@ -159,15 +171,15 @@ api
     console.log(err);
   });
 
-//* Profile Add Card Popup
+//* Add Card Popup
 const addCardPopup = new PopupWithForm({
   popupSelector: selectors.newCardModal,
-  handleFormSubmit: (formData) => {
+  handleFormSubmit: (values) => {
     addCardPopup.renderLoading(true);
     api
-      .addNewCard(formData)
-      .then((res) => {
-        const newCard = createCard(res);
+      .addNewCard(values)
+      .then((cardData) => {
+        const newCard = createCard(cardData);
         addCardPopup.close();
         cardSection.addItem(newCard.getView());
       })
@@ -182,6 +194,35 @@ const addCardPopup = new PopupWithForm({
 
 addCardPopup.setEventListeners();
 
+//* Avatar buttons
+avatarEditButton.addEventListener("click", function () {
+  avatarFormValidator.resetValidation();
+  editAvatarPopup.open();
+});
+
+//* Profile Edit Avatar Popup
+const editAvatarPopup = new PopupWithForm({
+  popupSelector: selectors.avatarEditModal,
+  handleFormSubmit: (values) => {
+    editAvatarPopup.renderLoading(true);
+    api
+      .updateProfileAvatar(values.avatar)
+      .then((data) => {
+        userInfo.setUserAvatar(data.avatar);
+        editAvatarPopup.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        editAvatarPopup.renderLoading(false);
+      });
+  },
+});
+
+editAvatarPopup.setEventListeners();
+
+//* Profile Edit Button
 profileEditButton.addEventListener("click", function () {
   const info = userInfo.getUserInfo();
   editProfilePopup.setInputValues(info);
@@ -189,11 +230,8 @@ profileEditButton.addEventListener("click", function () {
   editProfilePopup.open();
 });
 
+//* New Card Button
 newCardAddButton.addEventListener("click", function () {
   addFormValidator.resetValidation();
   addCardPopup.open();
 });
-
-//* Profile Edit Avatar Popup
-
-//TODO Add the avatar edit popup and set the event listeners

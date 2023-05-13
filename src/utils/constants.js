@@ -1,30 +1,31 @@
-// Initial Card Data
-export const initialCards = [
-  {
-    name: "Grand Teton",
-    link: "https://source.unsplash.com/9nUcpfu476M/",
-  },
-  {
-    name: "Antelope Canyon",
-    link: "https://source.unsplash.com/7he8rO3qdsc",
-  },
-  {
-    name: "Glacier National Park",
-    link: "https://source.unsplash.com/qsngjpG5I5s",
-  },
-  {
-    name: "Yosemite National Park",
-    link: "https://source.unsplash.com/UCd78vfC8vU",
-  },
-  {
-    name: "Rockey Mountain National Park",
-    link: "https://source.unsplash.com/pq2DJBntZW0",
-  },
-  {
-    name: "Zion National Park",
-    link: "https://source.unsplash.com/tvg2AeJHfbM",
-  },
-];
+//TODO REmove the initial card data after testing
+// // Initial Card Data
+// export const initialCards = [
+//   {
+//     name: "Grand Teton",
+//     link: "https://source.unsplash.com/9nUcpfu476M/",
+//   },
+//   {
+//     name: "Antelope Canyon",
+//     link: "https://source.unsplash.com/7he8rO3qdsc",
+//   },
+//   {
+//     name: "Glacier National Park",
+//     link: "https://source.unsplash.com/qsngjpG5I5s",
+//   },
+//   {
+//     name: "Yosemite National Park",
+//     link: "https://source.unsplash.com/UCd78vfC8vU",
+//   },
+//   {
+//     name: "Rockey Mountain National Park",
+//     link: "https://source.unsplash.com/pq2DJBntZW0",
+//   },
+//   {
+//     name: "Zion National Park",
+//     link: "https://source.unsplash.com/tvg2AeJHfbM",
+//   },
+// ];
 
 export const validationSettings = {
   formInputSelector: ".modal__form-input",
@@ -60,3 +61,6 @@ export const newCardAddButton = document.querySelector("#new-card-add-button");
 //* Avatar Elements
 export const avatarEditForm = document.querySelector("#avatar-edit-form");
 export const avatarEditButton = document.querySelector("#avatar-edit-button");
+
+//* Delete Modal
+export const confirmDeleteModal = document.querySelector("#confirm-delete-modal");
