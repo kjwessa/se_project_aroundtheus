@@ -27,7 +27,6 @@ export default class PopupWithConfirmation extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    // TODO consider binding this._handleSubmit
-    this._popupForm.addEventListener("submit", this._handleSubmit);
+    this._popupForm.addEventListener("submit", this._handleSubmit.bind(this));
   }
 }

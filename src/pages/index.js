@@ -36,7 +36,6 @@ const api = new Api({
   },
 });
 
-//* API Classes
 let cardSection;
 let userId;
 
@@ -50,16 +49,13 @@ editFormValidator.enableValidation();
 avatarFormValidator.enableValidation();
 
 //* Preview Image Popup
-//TODO Unsure if this is needed
 function handleImageClick(cardName, cardLink) {
   cardPreviewPopup.open(cardName, cardLink);
 }
-//TODO Return to this if it continues to be an issue
-//TODO Previously was const cardPreviewPopup = new PopupWithImage(selectors.previewImageModal, handleImageClick);
-const cardPreviewPopup = new PopupWithImage(selectors.previewImageModal, handleImageClick);
-cardPreviewPopup.setEventListeners();
 
-//* Classes
+const cardPreviewPopup = new PopupWithImage(selectors.previewImageModal, handleImageClick);
+
+cardPreviewPopup.setEventListeners();
 
 //* Delete Card Popup
 const deleteCardPopup = new PopupWithConfirmation({
@@ -100,7 +96,6 @@ function createCard(cardData) {
     (cardName, cardLink) => {
       cardPreviewPopup.open(cardName, cardLink);
     },
-
     (cardId) => {
       deleteCardPopup.open();
       deleteCardPopup.setSubmitAction(() => {
