@@ -5,10 +5,11 @@ export default class Api {
   }
 
   //* Handle the response from the server
-  _handleResponse(res) {
-    console.log("Handle Response:", res);
+  //TODO There is a different struture in jr
+  _checkResponse(res) {
+    console.log("Check Response:", res);
     return res.json().then((data) => {
-      console.log("Handle Response Body:", data); // Add this line
+      console.log("Check Response Body:", data); // Add this line
       if (res.ok) {
         return data;
       }
@@ -20,15 +21,7 @@ export default class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers,
-    }).then(this._handleResponse);
-  }
-
-  //* Get the initial cards from the server
-  getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
-      method: "GET",
-      headers: this._headers,
-    }).then(this._handleResponse);
+    }).then(this._checkResponse);
   }
 
   //* Promise All to get the initial user info and cards
@@ -36,11 +29,16 @@ export default class Api {
     return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
 
+  //* Get the initial cards from the server
+  getInitialCards() {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "GET",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
   //* Update the user profile info
-  //TODO This is returning a 400 error
   updateUserInfo(userData) {
-    console.log("User Data:", userData); // Add this line
-    //TODO Delete the console.log above
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
@@ -48,7 +46,7 @@ export default class Api {
         name: userData.name,
         about: userData.about,
       }),
-    }).then(this._handleResponse);
+    }).then(this._checkResponse);
   }
 
   //* Add a new card to the server
@@ -57,7 +55,7 @@ export default class Api {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({ name, link }),
-    }).then(this._handleResponse);
+    }).then(this._checkResponse);
   }
 
   //* Delete a card from the server
@@ -65,7 +63,7 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then(this._handleResponse);
+    }).then(this._checkResponse);
   }
 
   //* Add a like to a card
@@ -73,7 +71,7 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "PUT",
       headers: this._headers,
-    }).then(this._handleResponse);
+    }).then(this._checkResponse);
   }
 
   //* Remove a like from a card
@@ -81,7 +79,7 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then(this._handleResponse);
+    }).then(this._checkResponse);
   }
 
   //* Update the user profile avatar
@@ -90,6 +88,6 @@ export default class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({ avatar }),
-    }).then(this._handleResponse);
+    }).then(this._checkResponse);
   }
 }

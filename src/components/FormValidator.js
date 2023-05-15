@@ -9,6 +9,13 @@ class FormValidator {
     this._form = formElement;
   }
 
+  _showInputError(inputElement) {
+    const errorMessageElement = this._form.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.add(this._inputErrorClass);
+    errorMessageElement.textContent = inputElement.validationMessage;
+    inputElement.classList.add(this._errorClass);
+  }
+
   _setEventListeners() {
     this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
@@ -24,23 +31,8 @@ class FormValidator {
     });
   }
 
-  _showInputError(inputElement) {
-    const errorMessageElement = this._form.querySelector(`#${inputElement.id}-error`);
-    //TODO remove these console.logs when everything is working
-    console.log(inputElement);
-    console.log(inputElement.id);
-    console.log(this._form);
-
-    inputElement.classList.add(this._inputErrorClass);
-    errorMessageElement.textContent = inputElement.validationMessage;
-    inputElement.classList.add(this._errorClass);
-  }
-
   _hideInputError(inputElement) {
-    console.log("Hiding input error for input:", inputElement);
-    //TODO The issue still lies here with the avatar-edit-error
     const errorMessageElement = this._form.querySelector(`#${inputElement.id}-error`);
-    console.log("Error message element found:", errorMessageElement);
     if (errorMessageElement) {
       inputElement.classList.remove(this._inputErrorClass);
       errorMessageElement.textContent = "";

@@ -20,6 +20,13 @@ import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 
+//* User Info
+const userInfo = new UserInfo({
+  nameSelector: selectors.profileName,
+  jobSelector: selectors.profileJob,
+  avatarSelector: selectors.profileAvatar,
+});
+
 //* API
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -28,6 +35,10 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+
+//* API Classes
+let cardSection;
+let userId;
 
 //* Form Validators
 const addFormValidator = new FormValidator(validationSettings, newCardForm);
@@ -49,21 +60,12 @@ const cardPreviewPopup = new PopupWithImage(selectors.previewImageModal, handleI
 cardPreviewPopup.setEventListeners();
 
 //* Classes
-const userInfo = new UserInfo({
-  nameSelector: selectors.profileName,
-  jobSelector: selectors.profileJob,
-  avatarSelector: selectors.profileAvatar,
-});
 
 //* Delete Card Popup
 const deleteCardPopup = new PopupWithConfirmation({
   popupSelector: selectors.confirmDeleteModal,
 });
 deleteCardPopup.setEventListeners();
-
-//* API Classes
-let cardSection;
-let userId;
 
 //* Profile Edit Popup
 const editProfilePopup = new PopupWithForm({
