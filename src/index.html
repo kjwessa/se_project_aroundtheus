@@ -151,18 +151,22 @@
 
       <!-- Confirm Delete Modal -->
       <div class="modal" id="confirm-delete-modal">
-        <form class="modal__form" id="confirm-delete-form">
+        <form class="modal__form modal__form-delete" id="confirm-delete-form">
           <h3 class="modal__title">Are you sure?</h3>
           <fieldset class="modal__form-fieldset">
-            <button type="submit" class="modal__submit-button" aria-label="submit">Yes</button>
+            <button
+              type="submit"
+              class="modal__submit-button modal__submit-button-delete"
+              aria-label="submit">
+              Yes
+            </button>
           </fieldset>
-          <button class="modal__close-button" type="button" aria-label="close modal"></button>
         </form>
       </div>
 
       <!-- Change Avatar Modal -->
       <div class="modal" id="avatar-edit-modal">
-        <form class="modal__form" id="avatar-edit-form">
+        <form class="modal__form modal__form-avatar" id="avatar-edit-form">
           <h3 class="modal__title">Change profile picture</h3>
           <fieldset class="modal__form-fieldset">
             <label class="modal__label">

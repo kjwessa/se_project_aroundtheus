@@ -20,7 +20,6 @@ export default class Popup {
     }
   }
 
-  //TODO Is this the best place to handle this?
   _handlePopupClose = (evt) => {
     if (
       evt.target.classList.contains("modal_opened") ||

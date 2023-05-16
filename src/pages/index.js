@@ -5,11 +5,9 @@ import {
   profileEditButton,
   newCardAddButton,
   avatarEditButton,
-  //TODO Unsure if the ones below are needed
   profileEditForm,
   newCardForm,
   avatarEditForm,
-  confirmDeleteModal,
 } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -67,12 +65,10 @@ deleteCardPopup.setEventListeners();
 const editProfilePopup = new PopupWithForm({
   popupSelector: selectors.profileEditModal,
   handleFormSubmit: (values) => {
-    console.log("Form Values:", values);
     editProfilePopup.renderLoading(true);
     api
       .updateUserInfo(values)
       .then((data) => {
-        console.log(data);
         userInfo.setUserInfo(data);
         editProfilePopup.close();
       })
@@ -145,11 +141,7 @@ function createCard(cardData) {
 api
   .getAPIInfo()
   .then(([userData, userCards]) => {
-    //TODO remove the console logs
-    // console.log(userData);
-    // console.log(userCards);
     userId = userData._id;
-    console.log(userId);
     userInfo.setUserInfo(userData);
     userInfo.setUserAvatar(userData);
     cardSection = new Section(

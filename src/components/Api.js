@@ -4,12 +4,8 @@ export default class Api {
     this._headers = headers;
   }
 
-  //* Handle the response from the server
-  //TODO There is a different struture in jr
   _checkResponse(res) {
-    console.log("Check Response:", res);
     return res.json().then((data) => {
-      console.log("Check Response Body:", data); // Add this line
       if (res.ok) {
         return data;
       }
@@ -24,12 +20,10 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  //* Promise All to get the initial user info and cards
   getAPIInfo() {
     return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
 
-  //* Get the initial cards from the server
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
@@ -37,7 +31,6 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  //* Update the user profile info
   updateUserInfo(userData) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
@@ -49,7 +42,6 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  //* Add a new card to the server
   addNewCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
@@ -58,7 +50,6 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  //* Delete a card from the server
   deleteUserCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
@@ -66,7 +57,6 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  //* Add a like to a card
   addCardLikes(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "PUT",
@@ -74,7 +64,6 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  //* Remove a like from a card
   removeCardLikes(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "DELETE",
@@ -82,7 +71,6 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  //* Update the user profile avatar
   updateProfileAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",

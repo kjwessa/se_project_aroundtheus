@@ -19,9 +19,6 @@ class FormValidator {
   _setEventListeners() {
     this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
-    //TODO figure out if disable button is needed here
-    // this._disableButton();
-    //TODO Figure out if toggling button is better here
     this._toggleButtonState();
     this._inputElements.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
@@ -55,7 +52,6 @@ class FormValidator {
     this._submitButton.disabled = false;
   }
 
-  //TODO Figure out if disabling button is needed here
   _disableButton() {
     this._submitButton.classList.add(this._inactiveButtonClass);
     this._submitButton.disabled = true;

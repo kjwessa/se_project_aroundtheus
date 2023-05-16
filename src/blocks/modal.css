@@ -33,6 +33,14 @@
   padding: 0;
 }
 
+.modal__form-avatar {
+  height: 280px;
+}
+
+.modal__form-delete {
+  height: 200px;
+}
+
 .modal__title {
   font-size: 24px;
   font-weight: 900;
@@ -100,6 +108,10 @@
   border-radius: 2px;
   cursor: pointer;
   transition: opacity 0.2s ease-in-out;
+}
+
+.modal__submit-button-delete {
+  margin: 0;
 }
 
 .modal__submit-button:hover:not(:disabled) {

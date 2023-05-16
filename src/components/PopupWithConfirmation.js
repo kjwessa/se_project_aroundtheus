@@ -11,7 +11,6 @@ export default class PopupWithConfirmation extends Popup {
     this._handleConfirm = action;
   }
 
-  // TODO consider putting this in Popup.js instead of here
   renderLoading(isLoading) {
     if (isLoading) {
       this._confirmButton.textContent = "Saving...";
