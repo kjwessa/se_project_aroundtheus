@@ -5,6 +5,7 @@ export default class Api {
   }
 
   _checkResponse(res) {
+    console.log("Checking server response:", res);
     return res.json().then((data) => {
       if (res.ok) {
         return data;
@@ -76,6 +77,8 @@ export default class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({ avatar }),
-    }).then(this._checkResponse);
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 }

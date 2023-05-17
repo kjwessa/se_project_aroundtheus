@@ -76,7 +76,7 @@ const editProfilePopup = new PopupWithForm({
         console.log(err);
       })
       .finally(() => {
-        editProfilePopup.renderLoading(false);
+        editProfilePopup.renderLoading(false, "Save");
       });
   },
 });
@@ -176,7 +176,7 @@ const addCardPopup = new PopupWithForm({
         console.log(err);
       })
       .finally(() => {
-        addCardPopup.renderLoading(false);
+        addCardPopup.renderLoading(false, "Create");
       });
   },
 });
@@ -197,14 +197,14 @@ const editAvatarPopup = new PopupWithForm({
     api
       .updateProfileAvatar(values.avatar)
       .then((data) => {
-        userInfo.setUserAvatar(data.avatar);
+        userInfo.setUserAvatar(data);
         editAvatarPopup.close();
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        editAvatarPopup.renderLoading(false);
+        editAvatarPopup.renderLoading(false, "Save");
       });
   },
 });
